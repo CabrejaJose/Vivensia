@@ -1,0 +1,65 @@
+# ── Secretos y entorno ───────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.p8
+*.jks
+*.keystore
+key.properties
+google-services.json
+GoogleService-Info.plist
+
+# ── Sistema operativo / editores ─────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# ── Flutter / Dart ───────────────────────────────────
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+coverage/
+*.g.dart.bak
+.fvm/flutter_sdk
+
+# ── Android ──────────────────────────────────────────
+**/android/.gradle/
+**/android/captures/
+**/android/local.properties
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+*.apk
+*.aab
+
+# ── iOS / macOS ──────────────────────────────────────
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/xcuserdata/
+*.ipa
+*.dSYM.zip
+
+# ── Supabase ─────────────────────────────────────────
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# ── Node (herramientas auxiliares) ───────────────────
+node_modules/
