@@ -4,6 +4,7 @@ import 'package:vivensia/app/router/app_router.dart';
 import 'package:vivensia/app/router/app_routes.dart';
 import 'package:vivensia/design_system/design_system.dart';
 
+import '../helpers/fake_auth_repository.dart';
 import '../helpers/pump_app.dart';
 
 /// Recorre la pantalla: cualquier desbordamiento hace fallar la prueba.
@@ -40,6 +41,36 @@ void main() {
         container.read(themeModeProvider.notifier).set(mode);
         final router = container.read(appRouterProvider);
         for (final route in routes) {
+          router.go(route);
+          await settle(tester);
+          await scrollAll(tester);
+          expect(tester.takeException(), isNull, reason: route);
+        }
+      });
+    }
+  }
+
+  const authRoutes = [
+    AppRoutes.welcome,
+    AppRoutes.signIn,
+    AppRoutes.signUp,
+    AppRoutes.forgotPassword,
+  ];
+  for (final (name, size, scale) in sizes) {
+    for (final mode in [ThemeMode.light, ThemeMode.dark]) {
+      testWidgets('auth sin desbordamientos · $name · ${mode.name}', (
+        tester,
+      ) async {
+        await pumpVivensiaApp(
+          tester,
+          size: size,
+          textScale: scale,
+          authRepository: FakeAuthRepository(),
+        );
+        final container = containerOf(tester);
+        container.read(themeModeProvider.notifier).set(mode);
+        final router = container.read(appRouterProvider);
+        for (final route in authRoutes) {
           router.go(route);
           await settle(tester);
           await scrollAll(tester);

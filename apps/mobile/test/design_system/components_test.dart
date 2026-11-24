@@ -227,4 +227,21 @@ void main() {
       expect(find.text('¿Eliminar?'), findsNothing);
     });
   });
+
+  group('VivNotice', () {
+    testWidgets('muestra título y mensaje como región viva', (tester) async {
+      await pumpThemed(
+        tester,
+        const VivNotice(
+          title: 'Atención',
+          message: 'Algo pasó',
+          tone: VivNoticeTone.error,
+        ),
+      );
+      expect(find.text('Atención'), findsOneWidget);
+      expect(find.text('Algo pasó'), findsOneWidget);
+      final semantics = tester.getSemantics(find.byType(VivNotice));
+      expect(semantics.flagsCollection.isLiveRegion, isTrue);
+    });
+  });
 }
