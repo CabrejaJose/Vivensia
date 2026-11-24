@@ -10,6 +10,12 @@
 | Base de datos | SQL/pgTAP en `supabase/tests/` | Restricciones, triggers y **RLS / acceso cruzado** |
 | Seguridad | `scripts/check-secrets.sh` + revisión por fase | Secretos, permisos |
 
+## Prueba en emulador (CI)
+`scripts/ci/android-integration.sh` ejecuta `flutter drive` con límite de 10 min por intento y
+**un** reintento en limpio. Motivo: el emulador de CI a veces relanza la actividad durante la
+prueba y el driver queda esperando indefinidamente (run 45411844738). Un fallo real de la app
+falla en ambos intentos; cada intento queda registrado como aviso en el log.
+
 ## Reglas
 - Ninguna prueba se desactiva para obtener verde.
 - Los resultados reportados deben provenir de ejecuciones reales.

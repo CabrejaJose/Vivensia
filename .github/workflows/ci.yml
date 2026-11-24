@@ -119,6 +119,7 @@ jobs:
         run: flutter build apk --debug
       - name: Pruebas de integración en emulador (API 34)
         if: steps.app.outputs.exists == 'true'
+        timeout-minutes: 30
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 34
@@ -128,7 +129,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           working-directory: apps/mobile
-          script: flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart
+          script: bash ../../scripts/ci/android-integration.sh
       - name: Publicar capturas del emulador
         if: always() && steps.app.outputs.exists == 'true'
         uses: actions/upload-artifact@v4

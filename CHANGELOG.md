@@ -6,6 +6,10 @@ y versionado [SemVer](https://semver.org/lang/es/).
 
 ## [Unreleased]
 
+### Fixed
+- CI: la prueba en emulador tiene límite de tiempo y un reintento ante relanzamientos de la
+  actividad del emulador (antes podía quedar colgada hasta el límite del job).
+
 ### Added
 - Fase 02 · Hito 2.3: perfil del usuario (`profiles`), onboarding con nombre e idioma,
   pantalla Mi perfil, idioma del perfil aplicado a la app y saludo personalizado.
