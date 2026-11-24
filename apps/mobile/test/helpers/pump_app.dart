@@ -7,6 +7,8 @@ import 'package:vivensia/app/config/app_config.dart';
 import 'package:vivensia/core/utils/clock.dart';
 import 'package:vivensia/features/auth/application/auth_providers.dart';
 import 'package:vivensia/features/auth/domain/repositories/auth_repository.dart';
+import 'package:vivensia/features/profile/application/profile_providers.dart';
+import 'package:vivensia/features/profile/domain/repositories/profile_repository.dart';
 
 /// Hora fija por defecto en pruebas: 09:00 (mañana).
 final fixedMorning = DateTime(2026, 11, 24, 9);
@@ -28,6 +30,7 @@ Future<void> pumpVivensiaApp(
   List<Override> overrides = const [],
   // null = modo demostración (sin backend).
   AuthRepository? authRepository,
+  ProfileRepository? profileRepository,
 }) async {
   tester.platformDispatcher.localesTestValue = [locale];
   addTearDown(tester.platformDispatcher.clearLocalesTestValue);
@@ -50,6 +53,8 @@ Future<void> pumpVivensiaApp(
         clockProvider.overrideWithValue(() => time),
         if (authRepository != null)
           authRepositoryProvider.overrideWithValue(authRepository),
+        if (profileRepository != null)
+          profileRepositoryProvider.overrideWithValue(profileRepository),
         ...overrides,
       ],
       child: const VivensiaApp(),

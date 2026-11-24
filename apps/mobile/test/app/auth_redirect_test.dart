@@ -39,4 +39,52 @@ void main() {
       }
     }
   });
+
+  group('perfil (con sesión)', () {
+    test('perfil cargando → pantalla de carga', () {
+      expect(
+        authRedirect(signedIn, AppRoutes.home, profile: ProfileGate.loading),
+        AppRoutes.splash,
+      );
+      expect(
+        authRedirect(signedIn, AppRoutes.splash, profile: ProfileGate.loading),
+        isNull,
+      );
+    });
+
+    test('sin nombre → onboarding, desde cualquier ruta', () {
+      for (final r in [
+        AppRoutes.home,
+        AppRoutes.more,
+        AppRoutes.signIn,
+        AppRoutes.splash,
+      ]) {
+        expect(
+          authRedirect(signedIn, r, profile: ProfileGate.incomplete),
+          AppRoutes.onboarding,
+          reason: r,
+        );
+      }
+      expect(
+        authRedirect(
+          signedIn,
+          AppRoutes.onboarding,
+          profile: ProfileGate.incomplete,
+        ),
+        isNull,
+      );
+    });
+
+    test('perfil completo: onboarding lleva a Inicio; perfil accesible', () {
+      expect(authRedirect(signedIn, AppRoutes.onboarding), AppRoutes.home);
+      expect(authRedirect(signedIn, AppRoutes.profile), isNull);
+    });
+  });
+
+  test('sin sesión u en demo no hay onboarding ni perfil', () {
+    expect(authRedirect(signedOut, AppRoutes.onboarding), AppRoutes.welcome);
+    expect(authRedirect(signedOut, AppRoutes.profile), AppRoutes.welcome);
+    expect(authRedirect(demo, AppRoutes.onboarding), AppRoutes.home);
+    expect(authRedirect(demo, AppRoutes.profile), AppRoutes.home);
+  });
 }

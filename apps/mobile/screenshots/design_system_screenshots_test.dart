@@ -4,6 +4,8 @@
 //   flutter test screenshots --update-goldens
 //
 // Las imágenes se escriben en screenshots/goldens/.
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -16,7 +18,11 @@ import 'package:vivensia/core/utils/clock.dart';
 import 'package:vivensia/design_system/design_system.dart';
 import 'package:vivensia/features/auth/application/auth_providers.dart';
 
+import 'package:vivensia/features/auth/domain/entities/auth_user.dart';
+import 'package:vivensia/features/profile/application/profile_providers.dart';
+
 import '../test/helpers/fake_auth_repository.dart';
+import '../test/helpers/fake_profile_repository.dart';
 
 Future<void> loadFonts() async {
   Future<void> load(String family, List<String> assets) async {
@@ -53,6 +59,8 @@ Future<ProviderContainer> pumpApp(
   required Size size,
   required Locale locale,
   bool signedOut = false,
+  String? profileName,
+  bool signedIn = false,
 }) async {
   tester.view.physicalSize = size * 2;
   tester.view.devicePixelRatio = 2;
@@ -67,6 +75,16 @@ Future<ProviderContainer> pumpApp(
       clockProvider.overrideWithValue(() => DateTime(2026, 11, 24, 9)),
       if (signedOut)
         authRepositoryProvider.overrideWithValue(FakeAuthRepository()),
+      if (signedIn) ...[
+        authRepositoryProvider.overrideWithValue(
+          FakeAuthRepository(
+            signedInAs: const AuthUser(id: 'user-1', email: 'ana@example.com'),
+          ),
+        ),
+        profileRepositoryProvider.overrideWithValue(
+          FakeProfileRepository(displayName: profileName),
+        ),
+      ],
     ],
   );
   addTearDown(container.dispose);
@@ -229,4 +247,45 @@ void main() {
       signedOut: true,
     ),
   );
+  testWidgets('onboarding', (t) async {
+    await pumpApp(
+      t,
+      size: const Size(390, 844),
+      locale: const Locale('es'),
+      signedIn: true,
+    );
+    await expectLater(
+      find.byType(VivensiaApp),
+      matchesGoldenFile('goldens/profile_onboarding_light.png'),
+    );
+  });
+  testWidgets('inicio con nombre', (t) async {
+    await pumpApp(
+      t,
+      size: const Size(390, 844),
+      locale: const Locale('es'),
+      signedIn: true,
+      profileName: 'Ana',
+    );
+    await expectLater(
+      find.byType(VivensiaApp),
+      matchesGoldenFile('goldens/home_signed_in_light.png'),
+    );
+  });
+  testWidgets('mi perfil oscuro', (t) async {
+    final c = await pumpApp(
+      t,
+      size: const Size(390, 844),
+      locale: const Locale('es'),
+      signedIn: true,
+      profileName: 'Ana',
+    );
+    c.read(themeModeProvider.notifier).set(ThemeMode.dark);
+    unawaited(c.read(appRouterProvider).push(AppRoutes.profile));
+    await settle(t);
+    await expectLater(
+      find.byType(VivensiaApp),
+      matchesGoldenFile('goldens/profile_edit_dark.png'),
+    );
+  });
 }

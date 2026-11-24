@@ -1,10 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:vivensia/app/router/app_router.dart';
 import 'package:vivensia/app/router/app_routes.dart';
 import 'package:vivensia/design_system/design_system.dart';
+import 'package:vivensia/features/auth/domain/entities/auth_user.dart';
+import 'package:vivensia/features/profile/application/profile_providers.dart';
 
 import '../helpers/fake_auth_repository.dart';
+import '../helpers/fake_profile_repository.dart';
 import '../helpers/pump_app.dart';
 
 /// Recorre la pantalla: cualquier desbordamiento hace fallar la prueba.
@@ -78,5 +83,36 @@ void main() {
         }
       });
     }
+  }
+
+  for (final (name, size, scale) in sizes) {
+    testWidgets('onboarding y perfil sin desbordamientos · $name', (
+      tester,
+    ) async {
+      final profiles = FakeProfileRepository();
+      await pumpVivensiaApp(
+        tester,
+        size: size,
+        textScale: scale,
+        authRepository: FakeAuthRepository(
+          signedInAs: const AuthUser(
+            id: 'u',
+            email: 'ana.maria.perez@example.com',
+          ),
+        ),
+        profileRepository: profiles,
+      );
+      await scrollAll(tester);
+      expect(tester.takeException(), isNull, reason: 'onboarding');
+
+      profiles.profile = profiles.profile.copyWith(displayName: 'Ana María');
+      final container = containerOf(tester);
+      container.invalidate(myProfileProvider);
+      await settle(tester);
+      unawaited(container.read(appRouterProvider).push(AppRoutes.profile));
+      await settle(tester);
+      await scrollAll(tester);
+      expect(tester.takeException(), isNull, reason: 'perfil');
+    });
   }
 }
