@@ -9,8 +9,8 @@
 | 3 | App Flutter inicial (`com.vivensia.app`, Riverpod, GoRouter, l10n) | COMPLETADO (aprobado 2026-11-24) |
 | 4 | Sistema de diseño (tokens, temas, componentes) | COMPLETADO (aprobado 2026-11-24) |
 | 5 | Navegación y pantallas iniciales | COMPLETADO (aprobado 2026-11-24) |
-| 6 | Preparación del backend (migraciones + RLS iniciales) | EN REVISIÓN |
-| 7 | Validación (analyze, tests, Android, temas) | PENDIENTE |
+| 6 | Preparación del backend (migraciones + RLS iniciales) | COMPLETADO (aprobado 2026-11-24) |
+| 7 | Validación (analyze, tests, Android, temas) | EN REVISIÓN — ver [reporte final](sprint-01-report.md) |
 
 ## Hito 1 — resultado de la auditoría (entorno de agente en la nube)
 - Ubuntu 24.04.5 x86_64, 4 CPU, 15 GB RAM. Git 2.43, Java, Node 22, psql 16 disponibles.

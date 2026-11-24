@@ -25,5 +25,5 @@ Ningún proyecto remoto se crea ni modifica sin autorización explícita.
 - `repo.maven.apache.org` responde 429 vía proxy → se usa un init script local de Gradle
   (`~/.gradle/init.d/`) que redirige Maven Central a `repo1.maven.org`. No afecta al repositorio.
 - Sin macOS → sin iOS.
-- La evidencia de ejecución real en Android se obtendrá en la máquina del
-  desarrollador o en CI.
+- La ejecución real en Android se valida en CI: job `android` (emulador API 34,
+  `flutter drive` + capturas como artefacto). Ver `docs/sprints/sprint-01-report.md`.

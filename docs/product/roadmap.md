@@ -4,7 +4,7 @@ Una fase solo se marca como terminada tras superar sus pruebas y recibir aprobac
 
 | Fase | Nombre | Alcance | Estado |
 |---|---|---|---|
-| 00 | Fundación técnica | Entorno, repositorio, arquitectura, documentación | EN PROGRESO |
+| 00 | Fundación técnica | Entorno, repositorio, arquitectura, documentación | EN REVISIÓN (Sprint 01) |
 | 01 | Sistema de diseño | Tokens, temas, componentes, navegación, pantallas base | PENDIENTE |
 | 02 | Autenticación | Registro, login, recuperación, perfiles | PENDIENTE |
 | 03 | Hogares | Creación, integrantes, invitaciones, roles y permisos | PENDIENTE |

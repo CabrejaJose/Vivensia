@@ -2,7 +2,7 @@
 
 - **Fecha:** 2026-11-24
 - **Rama:** `claude/busy-mayer-9lre3s`
-- **Estado del sprint:** EN REVISIÓN (pendiente de aprobación del responsable)
+- **Estado del sprint:** EN REVISIÓN — criterios cumplidos salvo iOS (documentado); pendiente de aprobación del responsable
 
 ## Resumen
 
@@ -25,7 +25,7 @@ análisis, pruebas, base de datos y emulador Android.
 |---|---|---|
 | Repositorio organizado | ✔ | Estructura del plan; carpetas solo cuando su fase lo requiere |
 | Documentación técnica | ✔ | `README`, `AGENTS.md`, `CHANGELOG`, `docs/` (producto, arquitectura, 6 ADR, BD, diseño, seguridad, pruebas, despliegue) |
-| App Flutter ejecutable | ✔ (ver Android) | APK debug y release compilados; ejecución en emulador vía CI |
+| App Flutter ejecutable | ✔ | APK debug y release compilados; ejecutada en emulador Android |
 | Arquitectura coherente | ✔ | Feature-first + capas; dashboard con dominio/datos/aplicación/presentación |
 | Sistema de diseño reutilizable | ✔ | Tokens, temas claro/oscuro/sistema, 13 componentes `Viv*`, contraste AA verificado (62 pares) |
 | Navegación funcional | ✔ | Barra inferior con 5 destinos, pruebas de navegación |
@@ -33,7 +33,7 @@ análisis, pruebas, base de datos y emulador Android.
 | Sin secretos en el repositorio | ✔ | `check-secrets.sh` en CI: 0 hallazgos |
 | Pruebas satisfactorias | ✔ | 136 Dart + 66 aserciones SQL + 12 capturas de regresión |
 | Sin errores de análisis | ✔ | `flutter analyze`: sin problemas (lints estrictos) |
-| Evidencia real en Android | Ver sección "Android" | Job `android` en CI (emulador API 34) |
+| Evidencia real en Android | ✔ | Emulador API 34 en CI: instalación + recorrido + 8 capturas (ver "Android") |
 | Validación iOS | ✗ (documentado) | Requiere macOS; ver "Limitaciones" |
 
 ## Validación local (contenedor Linux, 2026-11-24)
@@ -60,7 +60,22 @@ arranque → Inicio → Tareas → Compras → Agenda → Más → Finanzas ("Pr
 tema oscuro → sistema de diseño, con 8 capturas publicadas como artefacto
 `android-emulator-screenshots` y el APK como `vivensia-debug-apk`.
 
-**Resultado: PENDIENTE** — run de CI [45407277417](https://github.com/CabrejaJose/Vivensia/actions/runs/45407277417) en curso (primer intento falló al compilar por resolución de plugins de Gradle; corregido en `d0124dc`).
+**Resultado: ✔ SUPERADO** — run de CI [45407520294](https://github.com/CabrejaJose/Vivensia/actions/runs/45407520294)
+(commit `035f1be`, 2026-11-24 13:51–13:59 UTC). Los 4 jobs en verde.
+
+| Paso del job `android` | Duración | Resultado |
+|---|---|---|
+| Compilar APK debug | 3 min 29 s | ✔ |
+| Emulador API 34 (1080×2400, 420 dpi): arranque en frío | 43 s | ✔ |
+| `flutter drive` · instalación de `com.vivensia.app` + recorrido completo | 51 s de prueba | ✔ `All tests passed.` |
+| Capturas publicadas | 8 archivos (871 KB) | ✔ artefacto `android-emulator-screenshots` (30 días) |
+| APK publicado | 54 MB comprimido | ✔ artefacto `vivensia-debug-apk` (7 días) |
+
+Observaciones del log (no bloqueantes):
+- `Choreographer: Skipped N frames` en el arranque: esperable con GPU emulada (SwiftShader) y build debug.
+- Aviso `enableOnBackInvokedCallback`: activar el gesto "atrás predictivo" de Android en una fase posterior.
+- Primer intento (run 45405874669) falló al compilar: el build interno de Flutter resolvía plugins
+  solo en el Gradle Plugin Portal. Corregido con `.github/gradle/plugin-repositories.init.gradle`.
 
 ## Incidencias encontradas y resueltas en el sprint
 
@@ -91,4 +106,6 @@ tema oscuro → sistema de diseño, con 8 capturas publicadas como artefacto
 2. Fase 02 (Autenticación): `supabase_flutter`, registro/inicio/recuperación, Sign in with Apple
    y Google, onboarding con nombre, conexión de la app a `profiles`.
 3. Decidir si se añade el job de compilación iOS en CI.
-4. Ejecutar `flutter run` al menos una vez en un teléfono real antes de la beta.
+4. Ejecutar la prueba de integración en un teléfono real (pendiente: la carpeta compartida por
+   Remote Control no está disponible para sesiones en la nube en el equipo del responsable).
+5. Activar `android:enableOnBackInvokedCallback` (atrás predictivo).

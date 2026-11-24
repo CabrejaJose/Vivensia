@@ -7,6 +7,13 @@ y versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- Sprint 01 · Hito 7: prueba de integración en dispositivo (`integration_test`) y job de CI
+  con emulador Android API 34 que publica capturas y el APK debug como artefactos.
+- Reporte final del Sprint 01 (`docs/sprints/sprint-01-report.md`).
+
+### Fixed
+- CI: repositorios explícitos para plugins de Gradle (el build interno de Flutter solo
+  consultaba el Gradle Plugin Portal).
 - Sprint 01 · Hito 6: `supabase/config.toml` local, migraciones de `profiles`, `households`
   y `household_members` con RLS, `create_household()` atómico, protección del último owner
   y sucesión al eliminar cuentas.

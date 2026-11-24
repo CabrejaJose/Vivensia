@@ -18,7 +18,7 @@ conectadas entre sí para que la información no se introduzca dos veces.
 
 ## Estado
 
-🚧 **Sprint 01 — Fundación técnica.** Hito 6 (preparación del backend) en revisión. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
+🚧 **Sprint 01 — Fundación técnica.** Hito 7 (validación) en revisión — ver [reporte final del sprint](docs/sprints/sprint-01-report.md). Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
 y la hoja de ruta en [`docs/product/roadmap.md`](docs/product/roadmap.md).
 
 ## Estructura del repositorio
