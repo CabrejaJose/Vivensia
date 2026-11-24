@@ -18,15 +18,14 @@ conectadas entre sí para que la información no se introduzca dos veces.
 
 ## Estado
 
-🚧 **Sprint 01 — Fundación técnica.** Hito 2 (repositorio y documentación) en revisión.
-Todavía no existe código de la aplicación. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
+🚧 **Sprint 01 — Fundación técnica.** Hito 3 (app Flutter inicial) en revisión. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
 y la hoja de ruta en [`docs/product/roadmap.md`](docs/product/roadmap.md).
 
 ## Estructura del repositorio
 
 ```
 vivensia/
-├── apps/mobile/        App Flutter (se crea en el Hito 3)
+├── apps/mobile/        App Flutter (com.vivensia.app)
 ├── supabase/           Migraciones, Edge Functions y pruebas del backend
 ├── docs/               Producto, arquitectura, BD, diseño, seguridad, pruebas, despliegue
 ├── scripts/            Utilidades de desarrollo y CI
@@ -43,7 +42,7 @@ Las carpetas se crean cuando su fase lo requiere, sin archivos vacíos innecesar
 | Herramienta | Uso | Notas |
 |---|---|---|
 | Git | Control de versiones | — |
-| Flutter (stable) + Dart | App móvil | Versión exacta fijada en el Hito 3 |
+| Flutter 3.50.1 (stable) + Dart 3.14 | App móvil | Misma versión que CI |
 | Android Studio / SDK | Compilar y emular Android | Emulador requiere virtualización (KVM/HAXM/Hyper-V) |
 | Xcode (macOS) | Compilar iOS | Imprescindible para iOS nativo |
 | Docker + Supabase CLI | Backend local | A partir del Hito 6 |
@@ -56,6 +55,20 @@ cp .env.example .env   # rellena SOLO valores de desarrollo local
 
 Nunca subas `.env`, claves `service_role`, cadenas de conexión de PostgreSQL
 ni archivos de firma. Ver [`docs/security/security-baseline.md`](docs/security/security-baseline.md).
+
+## Ejecutar la app
+
+```bash
+cd apps/mobile
+flutter pub get
+flutter run --dart-define=APP_ENV=development
+```
+
+Comprobaciones locales (las mismas que CI):
+
+```bash
+dart format --output=none --set-exit-if-changed lib test && flutter analyze && flutter test
+```
 
 ## Documentación
 

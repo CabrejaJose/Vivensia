@@ -22,8 +22,9 @@ y necesidad futura de offline, IA, push y suscripciones.
 | l10n | `flutter_localizations` + ARB (es, en) |
 | CI | GitHub Actions |
 
-Versiones exactas: se fijan en el Hito 3 tras verificar la documentación oficial
-y se registran en `apps/mobile/pubspec.yaml` y en la configuración de CI.
+Versiones (Hito 3, 2026-11-24): Flutter 3.50.1 stable / Dart 3.14.0, flutter_riverpod ^3.5.0,
+go_router ^18.1.4, intl ^0.20.3, material_ui ^1.1.0. Fijadas en `apps/mobile/pubspec.yaml`,
+`pubspec.lock` y en CI. Riverpod se usa sin generación de código por ahora.
 
 ## Consecuencias
 - + Un solo código para ambas plataformas; Postgres relacional con RLS encaja con

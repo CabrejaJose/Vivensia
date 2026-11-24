@@ -40,10 +40,10 @@ jobs:
             echo "exists=false" >> "$GITHUB_OUTPUT"
             echo "apps/mobile todavía no existe (se crea en el Hito 3). Se omite."
           fi
-      # La versión exacta de Flutter se fijará en el Hito 3.
       - uses: subosito/flutter-action@v2
         if: steps.app.outputs.exists == 'true'
         with:
+          flutter-version: 3.50.1
           channel: stable
           cache: true
       - if: steps.app.outputs.exists == 'true'
