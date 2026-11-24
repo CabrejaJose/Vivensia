@@ -21,7 +21,9 @@ Ningún proyecto remoto se crea ni modifica sin autorización explícita.
 
 ## Limitaciones conocidas del entorno de agente en la nube (Sprint 01)
 - Linux sin KVM → sin emulador Android.
-- `dl.google.com` bloqueado por la red del entorno → sin Android SDK salvo autorización.
+- `dl.google.com` permitido desde el Hito 4 → Android SDK y compilación de APK disponibles.
+- `repo.maven.apache.org` responde 429 vía proxy → se usa un init script local de Gradle
+  (`~/.gradle/init.d/`) que redirige Maven Central a `repo1.maven.org`. No afecta al repositorio.
 - Sin macOS → sin iOS.
 - La evidencia de ejecución real en Android se obtendrá en la máquina del
   desarrollador o en CI.

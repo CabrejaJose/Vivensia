@@ -7,6 +7,12 @@ y versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- Sprint 01 · Hito 4: sistema de diseño (tokens, temas claro/oscuro/sistema, tipografía
+  Manrope + Inter empaquetada, iconos Lucide, 13 componentes `Viv*`).
+- Pantalla de demostración de componentes (solo builds de desarrollo), textos es/en.
+- Pruebas de contraste WCAG AA (62 pares), tema, componentes y desbordamientos en 3 tamaños.
+- Capturas reales renderizadas en `apps/mobile/screenshots/goldens/`.
+- ADR 0004 (iconografía Lucide).
 - Sprint 01 · Hito 3: app Flutter en `apps/mobile` (`com.vivensia.app`, nombre "Vivensia").
 - Riverpod, GoRouter, localización es/en, `AppConfig` por entorno y manejo global de errores.
 - Lints estrictos (`strict-casts`, `strict-inference`, `strict-raw-types`).

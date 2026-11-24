@@ -6,8 +6,8 @@
 |---|---|---|
 | 1 | Auditoría del entorno y planificación | COMPLETADO (aprobado 2026-11-24) |
 | 2 | Repositorio y documentación | COMPLETADO (aprobado 2026-11-24) |
-| 3 | App Flutter inicial (`com.vivensia.app`, Riverpod, GoRouter, l10n) | EN REVISIÓN |
-| 4 | Sistema de diseño (tokens, temas, componentes) | PENDIENTE |
+| 3 | App Flutter inicial (`com.vivensia.app`, Riverpod, GoRouter, l10n) | COMPLETADO (aprobado 2026-11-24) |
+| 4 | Sistema de diseño (tokens, temas, componentes) | EN REVISIÓN |
 | 5 | Navegación y pantallas iniciales | PENDIENTE |
 | 6 | Preparación del backend (migraciones + RLS iniciales) | PENDIENTE |
 | 7 | Validación (analyze, tests, Android, temas) | PENDIENTE |
@@ -26,7 +26,21 @@
 - `bootstrap()` con manejo global de errores, `AppConfig` por `--dart-define`, router con pantalla de ruta no encontrada.
 - l10n es/en (ARB, plantilla es); idioma no soportado → inglés.
 - `flutter analyze`: sin problemas. `flutter test`: 9/9.
-- **No verificado**: compilación Android (sin Android SDK en el entorno) ni iOS (requiere macOS).
+- Compilación Android: verificada en el Hito 4 (ver abajo). iOS: requiere macOS.
+
+## Hito 4 — resultado
+- Tokens (color, espaciado, radios, movimiento, tamaños, elevación), temas claro/oscuro/sistema,
+  tipografía Manrope + Inter empaquetada, iconos Lucide, 13 componentes `Viv*`.
+- Pantalla de demostración `/dev/design-system` (solo builds no release), textos es/en.
+- Contraste WCAG AA: 62 pares verificados por prueba automática.
+- `flutter analyze`: sin problemas. `flutter test`: 98/98.
+- Pruebas sin desbordamientos en 320×640, 390×844 con texto 1.3× y tablet 820×1180.
+- Capturas reales (motor Flutter, fuentes reales) en `apps/mobile/screenshots/goldens/`.
+- **APK debug compilado** en el entorno: `com.vivensia.app`, etiqueta "Vivensia", targetSdk 36.
+- Entorno: se permitió `dl.google.com`; Android SDK (cmdline-tools) instalado en `$HOME/android-sdk`.
+  `repo.maven.apache.org` devuelve 429 vía proxy → init script local de Gradle redirige a
+  `repo1.maven.org` (solo en el contenedor, no versionado).
+- **No verificado**: ejecución en emulador/dispositivo (sin KVM) ni iOS.
 
 ## Decisiones
 - Identificador: `com.vivensia.app` (ADR 0002).

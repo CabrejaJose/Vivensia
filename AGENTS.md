@@ -45,8 +45,13 @@ Este archivo es de lectura obligatoria para cualquier agente de IA
 ## Diseño
 
 - Todos los colores, tipografías, espaciados, radios y duraciones
-  salen de `lib/design_system/tokens`. **Prohibido** `Color(0xFF…)` o
-  números mágicos dispersos en pantallas.
+  salen del sistema de diseño (`import 'design_system/design_system.dart'`).
+  En pantallas: `colorScheme.*` y `context.vivColors.*`, nunca `VivensiaPalette`.
+  **Prohibido** `Color(0xFF…)` o números mágicos dispersos en pantallas.
+- Reutilizar componentes `Viv*` antes de crear widgets nuevos; si falta uno,
+  añadirlo a `design_system/components/` con prueba.
+- Iconos: Lucide (`lucide_icons_flutter`).
+- Cualquier color nuevo debe añadirse a `test/design_system/contrast_test.dart`.
 - Ningún texto visible hardcodeado en widgets: usar l10n (es/en).
 - Objetivo de accesibilidad: WCAG AA, áreas táctiles ≥ 48 dp, escalado de texto.
 
