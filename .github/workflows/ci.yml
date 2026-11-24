@@ -21,6 +21,20 @@ jobs:
       - name: Detectar secretos
         run: bash scripts/check-secrets.sh
 
+  database:
+    name: Base de datos (migraciones + RLS)
+    runs-on: ubuntu-latest
+    needs: hygiene
+    steps:
+      - uses: actions/checkout@v4
+      - name: Asegurar PostgreSQL
+        run: |
+          if ! ls /usr/lib/postgresql/*/bin/initdb >/dev/null 2>&1; then
+            sudo apt-get update && sudo apt-get install -y postgresql
+          fi
+      - name: Migraciones y pruebas de RLS
+        run: bash scripts/test-db.sh
+
   mobile:
     name: Flutter (analyze + test)
     runs-on: ubuntu-latest
