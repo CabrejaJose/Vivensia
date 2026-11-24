@@ -1,11 +1,123 @@
 {
   "@@locale": "es",
   "appName": "Vivensia",
-  "@appName": { "description": "Nombre comercial de la app. No se traduce." },
+  "@appName": {
+    "description": "Nombre comercial de la app. No se traduce."
+  },
   "tagline": "Organiza menos. Vive más.",
-  "@tagline": { "description": "Eslogan de la marca." },
+  "@tagline": {
+    "description": "Eslogan de la marca."
+  },
   "routeNotFoundTitle": "No encontramos esta página",
-  "@routeNotFoundTitle": { "description": "Título cuando una ruta no existe." },
+  "@routeNotFoundTitle": {
+    "description": "Título cuando una ruta no existe."
+  },
   "goHome": "Ir al inicio",
-  "@goHome": { "description": "Botón para volver a la pantalla de inicio." }
+  "@goHome": {
+    "description": "Botón para volver a la pantalla de inicio."
+  },
+  "openShowcase": "Ver sistema de diseño",
+  "showcaseTitle": "Sistema de diseño",
+  "showcaseDemoData": "Datos de ejemplo",
+  "themeLabel": "Tema",
+  "themeLight": "Claro",
+  "themeDark": "Oscuro",
+  "themeSystem": "Sistema",
+  "sectionColors": "Colores",
+  "sectionTypography": "Tipografía",
+  "sectionButtons": "Botones",
+  "sectionInputs": "Campos de texto",
+  "sectionCards": "Tarjetas",
+  "sectionBadges": "Etiquetas",
+  "sectionSelectors": "Selectores",
+  "sectionProgress": "Progreso",
+  "sectionLists": "Listas",
+  "sectionOverlays": "Diálogos y hojas",
+  "sectionStates": "Estados",
+  "sectionSkeleton": "Marcadores de carga",
+  "colorPrimary": "Primario",
+  "colorSecondary": "Secundario",
+  "colorTertiary": "Terciario",
+  "colorGold": "Dorado",
+  "colorSuccess": "Éxito",
+  "colorWarning": "Aviso",
+  "colorError": "Error",
+  "colorInfo": "Información",
+  "buttonPrimary": "Acción principal",
+  "buttonSecondary": "Secundaria",
+  "buttonTertiary": "Terciaria",
+  "buttonLoading": "Guardando…",
+  "buttonDisabled": "No disponible",
+  "fieldEmailLabel": "Correo electrónico",
+  "fieldEmailHint": "nombre@ejemplo.com",
+  "fieldEmailHelper": "Lo usaremos para iniciar sesión",
+  "fieldEmailError": "Introduce un correo válido",
+  "fieldPasswordLabel": "Contraseña",
+  "showPassword": "Mostrar contraseña",
+  "hidePassword": "Ocultar contraseña",
+  "demoCleaningTitle": "Limpieza",
+  "demoPendingTasks": "{count, plural, =1{1 tarea pendiente} other{{count} tareas pendientes}}",
+  "demoBudgetTitle": "Presupuesto mensual",
+  "demoPercentUsed": "{percent} % usado",
+  "demoShoppingTitle": "Compras",
+  "demoProducts": "{count, plural, =1{1 producto} other{{count} productos}}",
+  "badgeDone": "Hecho",
+  "badgeDueSoon": "Pronto",
+  "badgeOverdue": "Atrasada",
+  "badgeNew": "Nuevo",
+  "badgeAchievement": "Logro",
+  "badgeShared": "Compartido",
+  "badgeInfo": "Novedad",
+  "roomKitchen": "Cocina",
+  "roomBathroom": "Baño",
+  "roomLivingRoom": "Sala",
+  "roomBedroom": "Dormitorio",
+  "periodDay": "Día",
+  "periodWeek": "Semana",
+  "periodMonth": "Mes",
+  "openDialog": "Abrir diálogo",
+  "openSheet": "Abrir hoja inferior",
+  "dialogDeleteTaskTitle": "¿Eliminar tarea?",
+  "dialogDeleteTaskMessage": "Esta acción no se puede deshacer.",
+  "cancel": "Cancelar",
+  "delete": "Eliminar",
+  "save": "Guardar",
+  "sheetNewTaskTitle": "Nueva tarea",
+  "sheetTaskNameLabel": "Nombre de la tarea",
+  "emptyTasksTitle": "Aún no hay tareas",
+  "emptyTasksMessage": "Crea tu primera tarea para empezar a organizar tu hogar.",
+  "emptyTasksAction": "Crear tarea",
+  "errorGenericTitle": "Algo salió mal",
+  "errorGenericMessage": "No pudimos cargar la información. Revisa tu conexión e inténtalo de nuevo.",
+  "retry": "Reintentar",
+  "loading": "Cargando…",
+  "navHome": "Inicio",
+  "navTasks": "Tareas",
+  "navShopping": "Compras",
+  "navAgenda": "Agenda",
+  "navMore": "Más",
+  "@demoPendingTasks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@demoProducts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@demoPercentUsed": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "@openShowcase": {
+    "description": "Botón solo visible en builds de desarrollo."
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../design_system/tokens/color_tokens.dart';
+import '../design_system/design_system.dart';
 import '../l10n/app_localizations.dart';
 import 'router/app_router.dart';
 
@@ -11,6 +11,7 @@ class VivensiaApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
+    final themeMode = ref.watch(themeModeProvider);
 
     return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context).appName,
@@ -22,17 +23,9 @@ class VivensiaApp extends ConsumerWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       localeResolutionCallback: resolveLocale,
-      // Temas provisionales; el sistema de diseño completo llega en el Hito 4.
-      themeMode: ThemeMode.system,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: VivensiaPalette.green600),
-      ),
-      darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: VivensiaPalette.green600,
-          brightness: Brightness.dark,
-        ),
-      ),
+      themeMode: themeMode,
+      theme: VivensiaTheme.light,
+      darkTheme: VivensiaTheme.dark,
     );
   }
 }
