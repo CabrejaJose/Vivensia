@@ -26,7 +26,7 @@ void main() {
         const AppConfig(
           environment: AppEnvironment.development,
           supabaseUrl: 'http://127.0.0.1:54321',
-          supabaseAnonKey: 'k',
+          supabasePublishableKey: 'k',
         ).hasBackend,
         isTrue,
       );
@@ -41,7 +41,7 @@ void main() {
         const AppConfig(
           environment: AppEnvironment.development,
           supabaseUrl: 'no es una url',
-          supabaseAnonKey: 'k',
+          supabasePublishableKey: 'k',
         ).hasBackend,
         isFalse,
       );
@@ -52,7 +52,7 @@ void main() {
         const AppConfig(
           environment: AppEnvironment.production,
           supabaseUrl: 'http://example.supabase.co',
-          supabaseAnonKey: 'k',
+          supabasePublishableKey: 'k',
         ).hasBackend,
         isFalse,
       );
@@ -60,7 +60,7 @@ void main() {
         const AppConfig(
           environment: AppEnvironment.production,
           supabaseUrl: 'https://example.supabase.co',
-          supabaseAnonKey: 'k',
+          supabasePublishableKey: 'k',
         ).hasBackend,
         isTrue,
       );
@@ -70,7 +70,7 @@ void main() {
       const config = AppConfig(
         environment: AppEnvironment.staging,
         supabaseUrl: 'https://example.supabase.co',
-        supabaseAnonKey: 'clave-secreta-de-prueba',
+        supabasePublishableKey: 'clave-secreta-de-prueba',
       );
       expect(config.toString(), isNot(contains('clave-secreta-de-prueba')));
     });

@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/errors/error_reporter.dart';
+import '../core/network/supabase_initializer.dart';
+import '../features/auth/application/auth_providers.dart';
+import '../features/auth/data/repositories/supabase_auth_repository.dart';
 import 'app.dart';
 import 'config/app_config.dart';
 
@@ -27,6 +30,8 @@ Future<void> bootstrap() async {
     return true;
   };
 
+  final supabase = await initializeSupabase(config);
+
   if (kReleaseMode) {
     // Evita la pantalla gris/roja de error en producción.
     ErrorWidget.builder = (_) => const SizedBox.shrink();
@@ -37,6 +42,10 @@ Future<void> bootstrap() async {
       overrides: [
         appConfigProvider.overrideWithValue(config),
         errorReporterProvider.overrideWithValue(reporter),
+        if (supabase != null)
+          authRepositoryProvider.overrideWithValue(
+            SupabaseAuthRepository(supabase.auth),
+          ),
       ],
       child: const VivensiaApp(),
     ),
