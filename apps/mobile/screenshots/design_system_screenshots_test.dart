@@ -10,6 +10,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:vivensia/app/app.dart';
 import 'package:vivensia/app/config/app_config.dart';
+import 'package:vivensia/app/router/app_router.dart';
+import 'package:vivensia/app/router/app_routes.dart';
+import 'package:vivensia/core/utils/clock.dart';
 import 'package:vivensia/design_system/design_system.dart';
 
 Future<void> loadFonts() async {
@@ -57,6 +60,7 @@ Future<ProviderContainer> pumpApp(
       appConfigProvider.overrideWithValue(
         const AppConfig(environment: AppEnvironment.development),
       ),
+      clockProvider.overrideWithValue(() => DateTime(2026, 11, 24, 9)),
     ],
   );
   addTearDown(container.dispose);
@@ -67,52 +71,92 @@ Future<ProviderContainer> pumpApp(
   return container;
 }
 
+Future<void> shot(
+  WidgetTester tester, {
+  required String name,
+  required String route,
+  ThemeMode mode = ThemeMode.light,
+  Size size = const Size(390, 844),
+  Locale locale = const Locale('es'),
+}) async {
+  final c = await pumpApp(tester, size: size, locale: locale);
+  c.read(themeModeProvider.notifier).set(mode);
+  c.read(appRouterProvider).go(route);
+  await settle(tester);
+  await expectLater(
+    find.byType(VivensiaApp),
+    matchesGoldenFile('goldens/$name.png'),
+  );
+}
+
 void main() {
   setUpAll(loadFonts);
 
   for (final mode in [ThemeMode.light, ThemeMode.dark]) {
-    testWidgets('inicio ${mode.name}', (tester) async {
-      final c = await pumpApp(
-        tester,
-        size: const Size(390, 844),
-        locale: const Locale('es'),
-      );
-      c.read(themeModeProvider.notifier).set(mode);
-      await settle(tester);
-      await expectLater(
-        find.byType(VivensiaApp),
-        matchesGoldenFile('goldens/home_${mode.name}.png'),
-      );
-    });
-
-    testWidgets('sistema de diseño ${mode.name}', (tester) async {
-      // Alto suficiente para ver la página completa en una sola imagen.
-      final c = await pumpApp(
-        tester,
+    final m = mode.name;
+    testWidgets(
+      'inicio $m',
+      (t) => shot(t, name: 'home_$m', route: AppRoutes.home, mode: mode),
+    );
+    testWidgets(
+      'inicio completo $m',
+      (t) => shot(
+        t,
+        name: 'home_full_$m',
+        route: AppRoutes.home,
+        mode: mode,
+        size: const Size(390, 1400),
+      ),
+    );
+    testWidgets(
+      'más $m',
+      (t) => shot(
+        t,
+        name: 'more_$m',
+        route: AppRoutes.more,
+        mode: mode,
+        size: const Size(390, 1250),
+      ),
+    );
+    testWidgets(
+      'sistema de diseño $m',
+      (t) => shot(
+        t,
+        name: 'design_system_$m',
+        route: AppRoutes.designSystem,
+        mode: mode,
         size: const Size(390, 4300),
-        locale: const Locale('es'),
-      );
-      c.read(themeModeProvider.notifier).set(mode);
-      await tester.tap(find.text('Ver sistema de diseño'));
-      await settle(tester);
-      await expectLater(
-        find.byType(VivensiaApp),
-        matchesGoldenFile('goldens/design_system_${mode.name}.png'),
-      );
-    });
+      ),
+    );
   }
-
-  testWidgets('sistema de diseño inglés móvil', (tester) async {
-    await pumpApp(
-      tester,
-      size: const Size(390, 844),
+  testWidgets(
+    'tareas',
+    (t) => shot(t, name: 'tasks_light', route: AppRoutes.tasks),
+  );
+  testWidgets(
+    'próximamente',
+    (t) => shot(
+      t,
+      name: 'coming_soon_finances_light',
+      route: AppRoutes.module('finances'),
+    ),
+  );
+  testWidgets(
+    'inicio inglés',
+    (t) => shot(
+      t,
+      name: 'home_en_light',
+      route: AppRoutes.home,
       locale: const Locale('en'),
-    );
-    await tester.tap(find.text('View design system'));
-    await settle(tester);
-    await expectLater(
-      find.byType(VivensiaApp),
-      matchesGoldenFile('goldens/design_system_en_viewport.png'),
-    );
-  });
+    ),
+  );
+  testWidgets(
+    'inicio tablet',
+    (t) => shot(
+      t,
+      name: 'home_tablet_light',
+      route: AppRoutes.home,
+      size: const Size(820, 1180),
+    ),
+  );
 }
