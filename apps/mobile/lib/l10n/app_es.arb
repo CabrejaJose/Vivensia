@@ -1,0 +1,11 @@
+{
+  "@@locale": "es",
+  "appName": "Vivensia",
+  "@appName": { "description": "Nombre comercial de la app. No se traduce." },
+  "tagline": "Organiza menos. Vive más.",
+  "@tagline": { "description": "Eslogan de la marca." },
+  "routeNotFoundTitle": "No encontramos esta página",
+  "@routeNotFoundTitle": { "description": "Título cuando una ruta no existe." },
+  "goHome": "Ir al inicio",
+  "@goHome": { "description": "Botón para volver a la pantalla de inicio." }
+}

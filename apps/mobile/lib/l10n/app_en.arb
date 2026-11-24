@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "appName": "Vivensia",
+  "tagline": "Organize less. Live more.",
+  "routeNotFoundTitle": "We couldn't find this page",
+  "goHome": "Go to home"
+}
