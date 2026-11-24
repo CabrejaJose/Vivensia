@@ -7,6 +7,13 @@ y versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- Fase 02 · Hito 2.1: autenticación con Supabase (PKCE) y sesión en almacenamiento seguro;
+  bienvenida, registro, inicio de sesión, recuperación de contraseña y cierre de sesión;
+  guardia de rutas; modo demostración sin backend; componentes `VivNotice` y `VivBrandMark`.
+- ADR 0007 (autenticación, sesión y modo demostración).
+
+### Changed
+- Configuración: `SUPABASE_ANON_KEY` → `SUPABASE_PUBLISHABLE_KEY` (el SDK marca `anonKey` como obsoleto).
 - Sprint 01 · Hito 7: prueba de integración en dispositivo (`integration_test`) y job de CI
   con emulador Android API 34 que publica capturas y el APK debug como artefactos.
 - Reporte final del Sprint 01 (`docs/sprints/sprint-01-report.md`).

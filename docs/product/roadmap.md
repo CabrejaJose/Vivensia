@@ -4,9 +4,9 @@ Una fase solo se marca como terminada tras superar sus pruebas y recibir aprobac
 
 | Fase | Nombre | Alcance | Estado |
 |---|---|---|---|
-| 00 | Fundación técnica | Entorno, repositorio, arquitectura, documentación | EN REVISIÓN (Sprint 01) |
+| 00 | Fundación técnica | Entorno, repositorio, arquitectura, documentación | COMPLETADO (Sprint 01, aprobado 2026-11-24) |
 | 01 | Sistema de diseño | Tokens, temas, componentes, navegación, pantallas base | PENDIENTE |
-| 02 | Autenticación | Registro, login, recuperación, perfiles | PENDIENTE |
+| 02 | Autenticación | Registro, login, recuperación, perfiles | EN PROGRESO ([detalle](../sprints/phase-02-auth.md)) |
 | 03 | Hogares | Creación, integrantes, invitaciones, roles y permisos | PENDIENTE |
 | 04 | Inicio | Dashboard personalizado | PENDIENTE |
 | 05 | Limpieza | Habitaciones, tareas, frecuencias, responsables | PENDIENTE |

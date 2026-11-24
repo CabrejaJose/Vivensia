@@ -2,7 +2,7 @@
 
 ## Secretos
 - Ningún secreto en Git. `.env` ignorado; solo `.env.example` con placeholders.
-- La app móvil solo conoce `SUPABASE_URL` y la clave anónima/publicable del entorno.
+- La app móvil solo conoce `SUPABASE_URL` y la clave publicable (antes "anon") del entorno.
 - `service_role`, contraseñas de BD, claves de IA, pagos y push → solo en
   Edge Functions / secretos de CI.
 - `scripts/check-secrets.sh` se ejecuta en CI y debe pasarse antes de cada commit.

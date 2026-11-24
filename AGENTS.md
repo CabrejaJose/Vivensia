@@ -55,6 +55,14 @@ Este archivo es de lectura obligatoria para cualquier agente de IA
 - Ningún texto visible hardcodeado en widgets: usar l10n (es/en).
 - Objetivo de accesibilidad: WCAG AA, áreas táctiles ≥ 48 dp, escalado de texto.
 
+## Autenticación
+
+- Las pantallas no llaman a Supabase: usan `AuthActions` / repositorios.
+- Errores de auth siempre como `AuthFailure` localizado; nunca el mensaje del servidor.
+- No revelar si un email existe (registro con confirmación, recuperación).
+- Sesión solo en almacenamiento seguro (`core/security/secure_auth_storage.dart`).
+- Sin backend configurado la app funciona en **modo demostración**.
+
 ## Seguridad (innegociable)
 
 - **Nunca** commitear secretos. `.env` está ignorado; solo `.env.example`.

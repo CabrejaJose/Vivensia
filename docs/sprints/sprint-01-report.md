@@ -2,7 +2,7 @@
 
 - **Fecha:** 2026-11-24
 - **Rama:** `claude/busy-mayer-9lre3s`
-- **Estado del sprint:** EN REVISIÓN — criterios cumplidos salvo iOS (documentado); pendiente de aprobación del responsable
+- **Estado del sprint:** COMPLETADO (aprobado 2026-11-24) — criterios cumplidos salvo iOS (documentado)
 
 ## Resumen
 

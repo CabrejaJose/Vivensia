@@ -12,7 +12,7 @@ con Supabase y lógica privilegiada en Edge Functions.
 │ domain         Entidades · value objects · contratos de repositorio · reglas│
 │ data           Modelos/DTO · datasources (Supabase, Drift) · repositorios   │
 └──────────────┬──────────────────────────────────────────────┬───────────────┘
-               │ HTTPS (anon key + JWT del usuario)           │ local
+               │ HTTPS (publishable key + JWT)               │ local
      ┌─────────▼──────────────────────────────┐        ┌──────▼──────┐
      │ Supabase: PostgreSQL + RLS · Auth ·    │        │ SQLite/Drift│
      │ Realtime · Storage · Edge Functions    │        │ caché/offline│

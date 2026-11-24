@@ -1,10 +1,10 @@
 # Estrategia de autenticación
 
-- **Estado:** Propuesta (se implementa en la Fase 02)
+- **Estado:** En implementación (Fase 02; ver `docs/sprints/phase-02-auth.md` y ADR 0007)
 - **Fecha:** 2026-11-24
 
 ## Proveedor
-Supabase Auth. La app solo usa la URL del proyecto y la clave anónima/publicable;
+Supabase Auth. La app solo usa la URL del proyecto y la clave publicable (antes "anon");
 toda autorización se resuelve con RLS en PostgreSQL.
 
 ## Métodos
@@ -18,7 +18,8 @@ toda autorización se resuelve con RLS en PostgreSQL.
 
 ## Decisiones
 - Flujo PKCE para enlaces de confirmación y recuperación (deep links con el esquema de la app).
-- Sesión persistida por el SDK en almacenamiento seguro (Keychain / Keystore).
+- Sesión y verificador PKCE en almacenamiento seguro (Keychain / Keystore) mediante
+  `SecureSessionStorage` / `SecurePkceStorage` (el SDK usaría `SharedPreferences`, sin cifrar).
 - Confirmación de email **activada en staging y producción** (en local está desactivada).
 - Cambio de contraseña con reautenticación (`secure_password_change`).
 - El perfil se crea por trigger; el nombre se pide en el onboarding (no se deriva del email).
