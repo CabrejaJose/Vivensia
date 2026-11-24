@@ -1,0 +1,3 @@
+-- Vivensia · datos semilla para desarrollo LOCAL (`supabase db reset`).
+-- Solo datos ficticios. Intencionadamente vacío hasta la Fase 03
+-- (los usuarios de prueba se crean desde la app o el panel local).
