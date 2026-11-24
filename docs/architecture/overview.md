@@ -50,6 +50,14 @@ shopping, pantry, calendar, recipes, meal_planning, maintenance, documents,
 gamification, assistant, notifications, subscriptions, profile, settings.
 **Se crean solo cuando llega su fase.**
 
+## Navegación (Hito 5)
+- `lib/app/router/`: rutas (`AppRoutes`) y `appRouterProvider` con `StatefulShellRoute`.
+- `lib/app/navigation/`: shell con barra inferior, catálogo `AppModule` (nombre, icono,
+  destino), pestañas provisionales, "Más" y `ComingSoonScreen`.
+- Los features pueden importar `app/router/app_routes.dart` y `app/navigation/app_module.dart`
+  (contratos de navegación), pero no pantallas de otros features. Cuando una función se
+  implemente, su ruta en el router pasa de la pantalla provisional a la del feature.
+
 ## Entornos
 `development` (local) · `staging` · `production`, cada uno con su propio
 proyecto Supabase y claves. Configuración inyectada en build

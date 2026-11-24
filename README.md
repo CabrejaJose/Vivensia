@@ -18,7 +18,7 @@ conectadas entre sí para que la información no se introduzca dos veces.
 
 ## Estado
 
-🚧 **Sprint 01 — Fundación técnica.** Hito 4 (sistema de diseño) en revisión. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
+🚧 **Sprint 01 — Fundación técnica.** Hito 5 (navegación y pantallas iniciales) en revisión. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
 y la hoja de ruta en [`docs/product/roadmap.md`](docs/product/roadmap.md).
 
 ## Estructura del repositorio

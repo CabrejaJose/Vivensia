@@ -7,8 +7,8 @@
 | 1 | Auditoría del entorno y planificación | COMPLETADO (aprobado 2026-11-24) |
 | 2 | Repositorio y documentación | COMPLETADO (aprobado 2026-11-24) |
 | 3 | App Flutter inicial (`com.vivensia.app`, Riverpod, GoRouter, l10n) | COMPLETADO (aprobado 2026-11-24) |
-| 4 | Sistema de diseño (tokens, temas, componentes) | EN REVISIÓN |
-| 5 | Navegación y pantallas iniciales | PENDIENTE |
+| 4 | Sistema de diseño (tokens, temas, componentes) | COMPLETADO (aprobado 2026-11-24) |
+| 5 | Navegación y pantallas iniciales | EN REVISIÓN |
 | 6 | Preparación del backend (migraciones + RLS iniciales) | PENDIENTE |
 | 7 | Validación (analyze, tests, Android, temas) | PENDIENTE |
 
@@ -40,6 +40,24 @@
 - Entorno: se permitió `dl.google.com`; Android SDK (cmdline-tools) instalado en `$HOME/android-sdk`.
   `repo.maven.apache.org` devuelve 429 vía proxy → init script local de Gradle redirige a
   `repo1.maven.org` (solo en el contenedor, no versionado).
+- **No verificado**: ejecución en emulador/dispositivo (sin KVM) ni iOS.
+
+## Hito 5 — resultado
+- Shell con barra inferior persistente (`StatefulShellRoute.indexedStack`): Inicio, Tareas,
+  Compras, Agenda, Más. Cada pestaña conserva su estado; volver a pulsarla regresa a su raíz.
+- Inicio: dashboard conceptual (selector de hogar, notificaciones, saludo según la hora,
+  "Tu hogar hoy", cuadrícula "Organiza tu hogar", acceso al asistente). Datos de ejemplo
+  marcados con la etiqueta "Datos de ejemplo". Sin importes ni datos privados.
+- Estados de carga (skeleton), error (con reintento, sin reintentos automáticos) y contenido.
+- Arquitectura del feature dashboard: `HomeSummary` (dominio) → `HomeSummaryRepository`
+  (contrato) → `DemoHomeSummaryRepository` (datos) → `homeSummaryProvider` (aplicación).
+- Funciones futuras: una única `ComingSoonScreen` parametrizada por `AppModule`
+  (sin carpetas vacías de features). Enlace directo → botón de volver a Inicio.
+- Más: todas las funciones, selector de tema, acceso al sistema de diseño (solo desarrollo).
+- `flutter analyze`: sin problemas. `flutter test`: 133/133.
+- Sin desbordamientos en 6 rutas × 4 tamaños (320×640, 390×844 texto 1.3×, 360×780 texto 2×,
+  tablet 820×1180) × 2 temas.
+- Capturas reales actualizadas en `apps/mobile/screenshots/goldens/`. APK debug recompilado.
 - **No verificado**: ejecución en emulador/dispositivo (sin KVM) ni iOS.
 
 ## Decisiones

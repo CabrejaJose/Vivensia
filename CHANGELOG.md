@@ -7,6 +7,15 @@ y versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- Sprint 01 · Hito 5: navegación principal con barra inferior (Inicio, Tareas, Compras,
+  Agenda, Más), dashboard conceptual con datos de ejemplo identificados, pantallas
+  "Próximamente" para funciones futuras y pestaña Más con selector de tema.
+- Feature dashboard con capas dominio/datos/aplicación/presentación y estados de carga/error.
+- `clockProvider` para controlar la hora en pruebas.
+- Pruebas de navegación, dashboard y desbordamientos (4 tamaños × 2 temas).
+
+### Changed
+- El acceso al sistema de diseño pasa de Inicio a Más → Desarrollo.
 - Sprint 01 · Hito 4: sistema de diseño (tokens, temas claro/oscuro/sistema, tipografía
   Manrope + Inter empaquetada, iconos Lucide, 13 componentes `Viv*`).
 - Pantalla de demostración de componentes (solo builds de desarrollo), textos es/en.
