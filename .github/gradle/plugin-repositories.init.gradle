@@ -1,0 +1,10 @@
+// CI: declara explícitamente los repositorios para resolver plugins de Gradle
+// en todos los builds (incluido el build interno de Flutter, que solo usa el
+// Gradle Plugin Portal por defecto y depende de que este reenvíe a Maven Central).
+beforeSettings { settings ->
+  settings.pluginManagement.repositories {
+    gradlePluginPortal()
+    mavenCentral()
+    google()
+  }
+}

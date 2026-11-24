@@ -100,6 +100,12 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - name: Configurar repositorios de plugins de Gradle
+        if: steps.app.outputs.exists == 'true'
+        working-directory: .
+        run: |
+          mkdir -p ~/.gradle/init.d
+          cp .github/gradle/plugin-repositories.init.gradle ~/.gradle/init.d/
       - uses: subosito/flutter-action@v2
         if: steps.app.outputs.exists == 'true'
         with:
