@@ -18,17 +18,44 @@ enum AppEnvironment {
 /// Solo contiene valores aptos para el cliente. Nunca añadir aquí claves
 /// `service_role`, contraseñas de base de datos ni secretos de terceros.
 class AppConfig {
-  const AppConfig({required this.environment});
+  const AppConfig({
+    required this.environment,
+    this.supabaseUrl = '',
+    this.supabaseAnonKey = '',
+  });
 
   factory AppConfig.fromEnvironment() => AppConfig(
     environment: AppEnvironment.parse(
       const String.fromEnvironment('APP_ENV', defaultValue: 'development'),
     ),
+    supabaseUrl: const String.fromEnvironment('SUPABASE_URL').trim(),
+    supabaseAnonKey: const String.fromEnvironment('SUPABASE_ANON_KEY').trim(),
   );
 
   final AppEnvironment environment;
 
+  /// URL del proyecto Supabase del entorno. Vacía si no se configuró.
+  final String supabaseUrl;
+
+  /// Clave anónima/publicable (protegida por RLS). Nunca `service_role`.
+  final String supabaseAnonKey;
+
   bool get isProduction => environment == AppEnvironment.production;
+
+  /// `true` si hay backend configurado. Sin él, la app usa datos de ejemplo.
+  bool get hasBackend {
+    final uri = Uri.tryParse(supabaseUrl);
+    final validUrl =
+        uri != null &&
+        uri.hasAuthority &&
+        (uri.scheme == 'https' || (!isProduction && uri.scheme == 'http'));
+    return validUrl && supabaseAnonKey.isNotEmpty;
+  }
+
+  /// Representación sin secretos para registros de diagnóstico.
+  @override
+  String toString() =>
+      'AppConfig(environment: ${environment.name}, hasBackend: $hasBackend)';
 }
 
 /// Se sobrescribe en `bootstrap()` con la configuración real.

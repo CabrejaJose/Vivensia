@@ -56,6 +56,10 @@ coverage/
 *.ipa
 *.dSYM.zip
 
+# ── Configuración de la app por entorno ──────────────
+apps/mobile/config/*.json
+!apps/mobile/config/*.example.json
+
 # ── Supabase ─────────────────────────────────────────
 supabase/.branches/
 supabase/.temp/
