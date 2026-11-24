@@ -5,6 +5,10 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:material_ui/material_ui.dart';
 
 import '../../design_system/design_system.dart';
+import '../../features/auth/application/auth_providers.dart';
+import '../../features/auth/domain/auth_failure.dart';
+import '../../features/auth/domain/auth_status.dart';
+import '../../features/auth/presentation/auth_messages.dart';
 import '../../l10n/app_localizations.dart';
 import '../router/app_routes.dart';
 import 'app_module.dart';
@@ -28,10 +32,31 @@ class MoreScreen extends ConsumerWidget {
     }
   }
 
+  Future<void> _signOut(BuildContext context, WidgetRef ref) async {
+    final l10n = AppLocalizations.of(context);
+    final confirmed = await showVivConfirmDialog(
+      context,
+      title: l10n.signOutConfirmTitle,
+      message: l10n.signOutConfirmMessage,
+      confirmLabel: l10n.signOut,
+      cancelLabel: l10n.cancel,
+    );
+    if (!confirmed) return;
+    try {
+      await ref.read(authActionsProvider).signOut();
+    } on AuthFailure catch (failure) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(l10n.authFailure(failure))));
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final themeMode = ref.watch(themeModeProvider);
+    final authStatus = ref.watch(authStatusProvider).value;
 
     Widget section(String title, Widget child) => Padding(
       padding: const EdgeInsets.only(top: VivSpacing.xl),
@@ -61,6 +86,31 @@ class MoreScreen extends ConsumerWidget {
                 VivSpacing.xxl,
               ),
               children: [
+                section(l10n.moreAccount, switch (authStatus) {
+                  AuthSignedIn(:final user) => VivCard(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: VivSpacing.sm,
+                    ),
+                    child: Column(
+                      children: [
+                        if (user.email != null)
+                          VivListTile(
+                            icon: LucideIcons.circleUser,
+                            title: user.email!,
+                          ),
+                        VivListTile(
+                          icon: LucideIcons.logOut,
+                          title: l10n.signOut,
+                          onTap: () => _signOut(context, ref),
+                        ),
+                      ],
+                    ),
+                  ),
+                  _ => VivNotice(
+                    title: l10n.demoModeTitle,
+                    message: l10n.demoModeMessage,
+                  ),
+                }),
                 section(
                   l10n.moreFeatures,
                   VivCard(

@@ -192,5 +192,75 @@
         "type": "int"
       }
     }
+  },
+  "welcomeTitle": "Tu hogar, en armonía",
+  "welcomeSubtitle": "Limpieza, compras, finanzas y agenda familiar en un solo lugar.",
+  "createAccount": "Crear cuenta",
+  "haveAccount": "Ya tengo cuenta",
+  "signInTitle": "Inicia sesión",
+  "signInSubtitle": "Qué bueno verte de nuevo.",
+  "signInAction": "Iniciar sesión",
+  "signingIn": "Iniciando sesión…",
+  "forgotPasswordLink": "¿Olvidaste tu contraseña?",
+  "noAccountPrompt": "¿No tienes cuenta? Crear una",
+  "signUpTitle": "Crea tu cuenta",
+  "signUpSubtitle": "Empieza a organizar tu hogar en minutos.",
+  "signUpAction": "Crear cuenta",
+  "signingUp": "Creando cuenta…",
+  "haveAccountPrompt": "¿Ya tienes cuenta? Inicia sesión",
+  "displayNameLabel": "Tu nombre",
+  "displayNameHelper": "Así te verá tu familia en Vivensia.",
+  "passwordRulesHelper": "Mínimo {min} caracteres, con letras y números.",
+  "confirmEmailTitle": "Revisa tu correo",
+  "confirmEmailMessage": "Si la dirección es correcta, te enviamos un enlace para confirmar tu cuenta. Después podrás iniciar sesión.",
+  "backToSignIn": "Volver a iniciar sesión",
+  "forgotPasswordTitle": "Recupera tu contraseña",
+  "forgotPasswordSubtitle": "Te enviaremos un enlace para crear una nueva.",
+  "sendResetLink": "Enviar enlace",
+  "sendingResetLink": "Enviando…",
+  "resetLinkSentMessage": "Si existe una cuenta con ese correo, recibirás un enlace en unos minutos.",
+  "errorEmailRequired": "Introduce tu correo electrónico",
+  "errorEmailInvalid": "Introduce un correo válido",
+  "errorPasswordRequired": "Introduce tu contraseña",
+  "errorPasswordTooShort": "Debe tener al menos {min} caracteres",
+  "errorPasswordNeedsLetter": "Debe incluir al menos una letra",
+  "errorPasswordNeedsDigit": "Debe incluir al menos un número",
+  "errorNameRequired": "Introduce tu nombre",
+  "errorNameTooLong": "Máximo {max} caracteres",
+  "authErrorInvalidCredentials": "Correo o contraseña incorrectos.",
+  "authErrorEmailNotConfirmed": "Confirma tu correo con el enlace que te enviamos antes de iniciar sesión.",
+  "authErrorEmailInUse": "Ya existe una cuenta con ese correo. Inicia sesión o recupera tu contraseña.",
+  "authErrorWeakPassword": "Esa contraseña es demasiado débil. Prueba con una más larga.",
+  "authErrorInvalidEmail": "Revisa el correo electrónico.",
+  "authErrorRateLimited": "Demasiados intentos. Espera unos minutos e inténtalo de nuevo.",
+  "authErrorSignupDisabled": "El registro no está disponible en este momento.",
+  "authErrorNetwork": "No hay conexión. Revisa tu internet e inténtalo de nuevo.",
+  "authErrorUnexpected": "Algo salió mal. Inténtalo de nuevo.",
+  "moreAccount": "Cuenta",
+  "signOut": "Cerrar sesión",
+  "signOutConfirmTitle": "¿Cerrar sesión?",
+  "signOutConfirmMessage": "Podrás volver a entrar con tu correo y contraseña.",
+  "demoModeTitle": "Modo demostración",
+  "demoModeMessage": "No hay servidor configurado: la app muestra datos de ejemplo y no requiere cuenta.",
+  "@passwordRulesHelper": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "@errorPasswordTooShort": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "@errorNameTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
   }
 }

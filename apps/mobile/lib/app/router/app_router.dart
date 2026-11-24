@@ -3,6 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/application/auth_providers.dart';
+import '../../features/auth/domain/auth_status.dart';
+import '../../features/auth/presentation/screens/forgot_password_screen.dart';
+import '../../features/auth/presentation/screens/sign_in_screen.dart';
+import '../../features/auth/presentation/screens/sign_up_screen.dart';
+import '../../features/auth/presentation/screens/splash_screen.dart';
+import '../../features/auth/presentation/screens/welcome_screen.dart';
 import '../../features/dashboard/presentation/screens/dashboard_screen.dart';
 import '../dev/design_system_showcase_screen.dart';
 import '../navigation/app_module.dart';
@@ -11,16 +18,52 @@ import '../navigation/coming_soon_screen.dart';
 import '../navigation/more_screen.dart';
 import '../navigation/tab_placeholders.dart';
 import 'app_routes.dart';
+import 'auth_redirect.dart';
 import 'route_error_screen.dart';
 
-/// Router principal con barra inferior persistente (StatefulShellRoute).
+/// Router principal con barra inferior persistente (StatefulShellRoute) y
+/// guardia de autenticación.
 final appRouterProvider = Provider<GoRouter>((ref) {
   GoRoute tab(String path, Widget screen) =>
       GoRoute(path: path, builder: (context, state) => screen);
 
+  // Estado de auth síncrono para la guardia; notifica al router al cambiar.
+  final authState = ValueNotifier<AuthStatus?>(null);
+  ref.listen<AsyncValue<AuthStatus>>(authStatusProvider, (_, next) {
+    authState.value = switch (next) {
+      AsyncData(:final value) => value,
+      AsyncError() => const AuthSignedOut(),
+      _ => authState.value,
+    };
+  }, fireImmediately: true);
+  ref.onDispose(authState.dispose);
+
   final router = GoRouter(
     initialLocation: AppRoutes.home,
+    refreshListenable: authState,
+    redirect: (context, state) =>
+        authRedirect(authState.value, state.matchedLocation),
     routes: [
+      GoRoute(
+        path: AppRoutes.splash,
+        builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.welcome,
+        builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.signIn,
+        builder: (context, state) => const SignInScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.signUp,
+        builder: (context, state) => const SignUpScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.forgotPassword,
+        builder: (context, state) => const ForgotPasswordScreen(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
             AppShell(navigationShell: navigationShell),

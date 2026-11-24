@@ -853,6 +853,300 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Desarrollo'**
   String get moreDevelopment;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu hogar, en armonía'**
+  String get welcomeTitle;
+
+  /// No description provided for @welcomeSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Limpieza, compras, finanzas y agenda familiar en un solo lugar.'**
+  String get welcomeSubtitle;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear cuenta'**
+  String get createAccount;
+
+  /// No description provided for @haveAccount.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya tengo cuenta'**
+  String get haveAccount;
+
+  /// No description provided for @signInTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Inicia sesión'**
+  String get signInTitle;
+
+  /// No description provided for @signInSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Qué bueno verte de nuevo.'**
+  String get signInSubtitle;
+
+  /// No description provided for @signInAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar sesión'**
+  String get signInAction;
+
+  /// No description provided for @signingIn.
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciando sesión…'**
+  String get signingIn;
+
+  /// No description provided for @forgotPasswordLink.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Olvidaste tu contraseña?'**
+  String get forgotPasswordLink;
+
+  /// No description provided for @noAccountPrompt.
+  ///
+  /// In es, this message translates to:
+  /// **'¿No tienes cuenta? Crear una'**
+  String get noAccountPrompt;
+
+  /// No description provided for @signUpTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Crea tu cuenta'**
+  String get signUpTitle;
+
+  /// No description provided for @signUpSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Empieza a organizar tu hogar en minutos.'**
+  String get signUpSubtitle;
+
+  /// No description provided for @signUpAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear cuenta'**
+  String get signUpAction;
+
+  /// No description provided for @signingUp.
+  ///
+  /// In es, this message translates to:
+  /// **'Creando cuenta…'**
+  String get signingUp;
+
+  /// No description provided for @haveAccountPrompt.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Ya tienes cuenta? Inicia sesión'**
+  String get haveAccountPrompt;
+
+  /// No description provided for @displayNameLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu nombre'**
+  String get displayNameLabel;
+
+  /// No description provided for @displayNameHelper.
+  ///
+  /// In es, this message translates to:
+  /// **'Así te verá tu familia en Vivensia.'**
+  String get displayNameHelper;
+
+  /// No description provided for @passwordRulesHelper.
+  ///
+  /// In es, this message translates to:
+  /// **'Mínimo {min} caracteres, con letras y números.'**
+  String passwordRulesHelper(int min);
+
+  /// No description provided for @confirmEmailTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Revisa tu correo'**
+  String get confirmEmailTitle;
+
+  /// No description provided for @confirmEmailMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Si la dirección es correcta, te enviamos un enlace para confirmar tu cuenta. Después podrás iniciar sesión.'**
+  String get confirmEmailMessage;
+
+  /// No description provided for @backToSignIn.
+  ///
+  /// In es, this message translates to:
+  /// **'Volver a iniciar sesión'**
+  String get backToSignIn;
+
+  /// No description provided for @forgotPasswordTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Recupera tu contraseña'**
+  String get forgotPasswordTitle;
+
+  /// No description provided for @forgotPasswordSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Te enviaremos un enlace para crear una nueva.'**
+  String get forgotPasswordSubtitle;
+
+  /// No description provided for @sendResetLink.
+  ///
+  /// In es, this message translates to:
+  /// **'Enviar enlace'**
+  String get sendResetLink;
+
+  /// No description provided for @sendingResetLink.
+  ///
+  /// In es, this message translates to:
+  /// **'Enviando…'**
+  String get sendingResetLink;
+
+  /// No description provided for @resetLinkSentMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Si existe una cuenta con ese correo, recibirás un enlace en unos minutos.'**
+  String get resetLinkSentMessage;
+
+  /// No description provided for @errorEmailRequired.
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu correo electrónico'**
+  String get errorEmailRequired;
+
+  /// No description provided for @errorEmailInvalid.
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce un correo válido'**
+  String get errorEmailInvalid;
+
+  /// No description provided for @errorPasswordRequired.
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu contraseña'**
+  String get errorPasswordRequired;
+
+  /// No description provided for @errorPasswordTooShort.
+  ///
+  /// In es, this message translates to:
+  /// **'Debe tener al menos {min} caracteres'**
+  String errorPasswordTooShort(int min);
+
+  /// No description provided for @errorPasswordNeedsLetter.
+  ///
+  /// In es, this message translates to:
+  /// **'Debe incluir al menos una letra'**
+  String get errorPasswordNeedsLetter;
+
+  /// No description provided for @errorPasswordNeedsDigit.
+  ///
+  /// In es, this message translates to:
+  /// **'Debe incluir al menos un número'**
+  String get errorPasswordNeedsDigit;
+
+  /// No description provided for @errorNameRequired.
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu nombre'**
+  String get errorNameRequired;
+
+  /// No description provided for @errorNameTooLong.
+  ///
+  /// In es, this message translates to:
+  /// **'Máximo {max} caracteres'**
+  String errorNameTooLong(int max);
+
+  /// No description provided for @authErrorInvalidCredentials.
+  ///
+  /// In es, this message translates to:
+  /// **'Correo o contraseña incorrectos.'**
+  String get authErrorInvalidCredentials;
+
+  /// No description provided for @authErrorEmailNotConfirmed.
+  ///
+  /// In es, this message translates to:
+  /// **'Confirma tu correo con el enlace que te enviamos antes de iniciar sesión.'**
+  String get authErrorEmailNotConfirmed;
+
+  /// No description provided for @authErrorEmailInUse.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya existe una cuenta con ese correo. Inicia sesión o recupera tu contraseña.'**
+  String get authErrorEmailInUse;
+
+  /// No description provided for @authErrorWeakPassword.
+  ///
+  /// In es, this message translates to:
+  /// **'Esa contraseña es demasiado débil. Prueba con una más larga.'**
+  String get authErrorWeakPassword;
+
+  /// No description provided for @authErrorInvalidEmail.
+  ///
+  /// In es, this message translates to:
+  /// **'Revisa el correo electrónico.'**
+  String get authErrorInvalidEmail;
+
+  /// No description provided for @authErrorRateLimited.
+  ///
+  /// In es, this message translates to:
+  /// **'Demasiados intentos. Espera unos minutos e inténtalo de nuevo.'**
+  String get authErrorRateLimited;
+
+  /// No description provided for @authErrorSignupDisabled.
+  ///
+  /// In es, this message translates to:
+  /// **'El registro no está disponible en este momento.'**
+  String get authErrorSignupDisabled;
+
+  /// No description provided for @authErrorNetwork.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay conexión. Revisa tu internet e inténtalo de nuevo.'**
+  String get authErrorNetwork;
+
+  /// No description provided for @authErrorUnexpected.
+  ///
+  /// In es, this message translates to:
+  /// **'Algo salió mal. Inténtalo de nuevo.'**
+  String get authErrorUnexpected;
+
+  /// No description provided for @moreAccount.
+  ///
+  /// In es, this message translates to:
+  /// **'Cuenta'**
+  String get moreAccount;
+
+  /// No description provided for @signOut.
+  ///
+  /// In es, this message translates to:
+  /// **'Cerrar sesión'**
+  String get signOut;
+
+  /// No description provided for @signOutConfirmTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Cerrar sesión?'**
+  String get signOutConfirmTitle;
+
+  /// No description provided for @signOutConfirmMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Podrás volver a entrar con tu correo y contraseña.'**
+  String get signOutConfirmMessage;
+
+  /// No description provided for @demoModeTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Modo demostración'**
+  String get demoModeTitle;
+
+  /// No description provided for @demoModeMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay servidor configurado: la app muestra datos de ejemplo y no requiere cuenta.'**
+  String get demoModeMessage;
 }
 
 class _AppLocalizationsDelegate

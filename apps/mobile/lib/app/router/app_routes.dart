@@ -11,6 +11,16 @@ abstract final class AppRoutes {
   static const modulePattern = '/module/:id';
   static String module(String id) => '/module/$id';
 
+  // Autenticación.
+  static const splash = '/splash';
+  static const welcome = '/welcome';
+  static const signIn = '/sign-in';
+  static const signUp = '/sign-up';
+  static const forgotPassword = '/forgot-password';
+
+  /// Rutas accesibles sin sesión.
+  static const authRoutes = {welcome, signIn, signUp, forgotPassword};
+
   /// Solo en builds de desarrollo.
   static const designSystem = '/dev/design-system';
 }

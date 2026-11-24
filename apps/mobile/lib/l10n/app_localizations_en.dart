@@ -438,4 +438,169 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get moreDevelopment => 'Development';
+
+  @override
+  String get welcomeTitle => 'Your home, in harmony';
+
+  @override
+  String get welcomeSubtitle =>
+      'Cleaning, shopping, finances and family calendar in one place.';
+
+  @override
+  String get createAccount => 'Create account';
+
+  @override
+  String get haveAccount => 'I already have an account';
+
+  @override
+  String get signInTitle => 'Sign in';
+
+  @override
+  String get signInSubtitle => 'Good to see you again.';
+
+  @override
+  String get signInAction => 'Sign in';
+
+  @override
+  String get signingIn => 'Signing in…';
+
+  @override
+  String get forgotPasswordLink => 'Forgot your password?';
+
+  @override
+  String get noAccountPrompt => 'No account? Create one';
+
+  @override
+  String get signUpTitle => 'Create your account';
+
+  @override
+  String get signUpSubtitle => 'Start organizing your home in minutes.';
+
+  @override
+  String get signUpAction => 'Create account';
+
+  @override
+  String get signingUp => 'Creating account…';
+
+  @override
+  String get haveAccountPrompt => 'Already have an account? Sign in';
+
+  @override
+  String get displayNameLabel => 'Your name';
+
+  @override
+  String get displayNameHelper =>
+      'This is how your family will see you in Vivensia.';
+
+  @override
+  String passwordRulesHelper(int min) {
+    return 'At least $min characters, with letters and numbers.';
+  }
+
+  @override
+  String get confirmEmailTitle => 'Check your email';
+
+  @override
+  String get confirmEmailMessage =>
+      'If the address is correct, we sent you a link to confirm your account. Then you can sign in.';
+
+  @override
+  String get backToSignIn => 'Back to sign in';
+
+  @override
+  String get forgotPasswordTitle => 'Reset your password';
+
+  @override
+  String get forgotPasswordSubtitle =>
+      'We\'ll send you a link to create a new one.';
+
+  @override
+  String get sendResetLink => 'Send link';
+
+  @override
+  String get sendingResetLink => 'Sending…';
+
+  @override
+  String get resetLinkSentMessage =>
+      'If an account exists for that email, you\'ll receive a link in a few minutes.';
+
+  @override
+  String get errorEmailRequired => 'Enter your email';
+
+  @override
+  String get errorEmailInvalid => 'Enter a valid email';
+
+  @override
+  String get errorPasswordRequired => 'Enter your password';
+
+  @override
+  String errorPasswordTooShort(int min) {
+    return 'Must be at least $min characters';
+  }
+
+  @override
+  String get errorPasswordNeedsLetter => 'Must include at least one letter';
+
+  @override
+  String get errorPasswordNeedsDigit => 'Must include at least one number';
+
+  @override
+  String get errorNameRequired => 'Enter your name';
+
+  @override
+  String errorNameTooLong(int max) {
+    return 'Maximum $max characters';
+  }
+
+  @override
+  String get authErrorInvalidCredentials => 'Incorrect email or password.';
+
+  @override
+  String get authErrorEmailNotConfirmed =>
+      'Confirm your email with the link we sent before signing in.';
+
+  @override
+  String get authErrorEmailInUse =>
+      'An account with that email already exists. Sign in or reset your password.';
+
+  @override
+  String get authErrorWeakPassword =>
+      'That password is too weak. Try a longer one.';
+
+  @override
+  String get authErrorInvalidEmail => 'Check the email address.';
+
+  @override
+  String get authErrorRateLimited =>
+      'Too many attempts. Wait a few minutes and try again.';
+
+  @override
+  String get authErrorSignupDisabled => 'Sign-up isn\'t available right now.';
+
+  @override
+  String get authErrorNetwork =>
+      'No connection. Check your internet and try again.';
+
+  @override
+  String get authErrorUnexpected => 'Something went wrong. Please try again.';
+
+  @override
+  String get moreAccount => 'Account';
+
+  @override
+  String get signOut => 'Sign out';
+
+  @override
+  String get signOutConfirmTitle => 'Sign out?';
+
+  @override
+  String get signOutConfirmMessage =>
+      'You can sign back in with your email and password.';
+
+  @override
+  String get demoModeTitle => 'Demo mode';
+
+  @override
+  String get demoModeMessage =>
+      'No server configured: the app shows sample data and doesn\'t require an account.';
 }
