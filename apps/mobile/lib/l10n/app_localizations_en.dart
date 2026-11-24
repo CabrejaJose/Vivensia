@@ -148,6 +148,7 @@ class AppLocalizationsEn extends AppLocalizations {
       locale: localeName,
       other: '$count pending tasks',
       one: '1 pending task',
+      zero: 'No pending tasks',
     );
     return '$_temp0';
   }
@@ -170,6 +171,7 @@ class AppLocalizationsEn extends AppLocalizations {
       locale: localeName,
       other: '$count items',
       one: '1 item',
+      zero: 'No items',
     );
     return '$_temp0';
   }
@@ -280,4 +282,160 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navMore => 'More';
+
+  @override
+  String get greetingMorning => 'Good morning';
+
+  @override
+  String get greetingAfternoon => 'Good afternoon';
+
+  @override
+  String get greetingEvening => 'Good evening';
+
+  @override
+  String get greetingSubtitle => 'Let\'s make today a great day.';
+
+  @override
+  String get myHousehold => 'My home';
+
+  @override
+  String get demoHouseholdName => 'Sample home';
+
+  @override
+  String get householdSwitcherHint => 'Switch home';
+
+  @override
+  String get householdSheetTitle => 'Your homes';
+
+  @override
+  String get householdSheetMessage =>
+      'Soon you\'ll be able to create homes, invite your family and switch between them.';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get todayEyebrow => 'Your home today';
+
+  @override
+  String get todayAllGood => 'Everything under control';
+
+  @override
+  String get statTasks => 'Tasks';
+
+  @override
+  String get statShopping => 'Shopping';
+
+  @override
+  String get statEvents => 'Events';
+
+  @override
+  String statSemantics(String label, int count) {
+    return '$label: $count';
+  }
+
+  @override
+  String get organizeYourHome => 'Organize your home';
+
+  @override
+  String get moduleCleaning => 'Cleaning';
+
+  @override
+  String get moduleFinances => 'Finances';
+
+  @override
+  String get moduleShopping => 'Shopping';
+
+  @override
+  String get modulePantry => 'Pantry';
+
+  @override
+  String get moduleCalendar => 'Calendar';
+
+  @override
+  String get moduleRecipes => 'Recipes & meals';
+
+  @override
+  String get moduleMaintenance => 'Maintenance';
+
+  @override
+  String get moduleDocuments => 'Documents';
+
+  @override
+  String get moduleFamily => 'My family';
+
+  @override
+  String get moduleAssistant => 'Smart assistant';
+
+  @override
+  String get moduleSettings => 'Settings';
+
+  @override
+  String get recipesSubtitle => 'Weekly menu';
+
+  @override
+  String get documentsSubtitle => 'Your files';
+
+  @override
+  String demoUpcomingEvents(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count upcoming events',
+      one: '1 upcoming event',
+      zero: 'No upcoming events',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String demoUpcomingMaintenance(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count upcoming checks',
+      one: '1 upcoming check',
+      zero: 'No upcoming checks',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String demoFamilyMembers(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count members',
+      one: '1 member',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get assistantPrompt => 'What do you need to organize today?';
+
+  @override
+  String get comingSoon => 'Coming soon';
+
+  @override
+  String get comingSoonMessage =>
+      'We\'re preparing this section to make organizing your home even easier.';
+
+  @override
+  String get tasksPlaceholderTitle => 'Your household tasks will appear here';
+
+  @override
+  String get shoppingPlaceholderTitle => 'Your shopping lists will appear here';
+
+  @override
+  String get agendaPlaceholderTitle => 'Your household events will appear here';
+
+  @override
+  String get moreFeatures => 'Features';
+
+  @override
+  String get moreAppearance => 'Appearance';
+
+  @override
+  String get moreDevelopment => 'Development';
 }

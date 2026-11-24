@@ -1,6 +1,15 @@
 /// Rutas de la app. Centralizadas para evitar strings dispersos.
 abstract final class AppRoutes {
+  // Pestañas de la barra inferior.
   static const home = '/';
+  static const tasks = '/tasks';
+  static const shopping = '/shopping';
+  static const agenda = '/agenda';
+  static const more = '/more';
+
+  /// Pantalla de una función (por ahora, "Próximamente").
+  static const modulePattern = '/module/:id';
+  static String module(String id) => '/module/$id';
 
   /// Solo en builds de desarrollo.
   static const designSystem = '/dev/design-system';

@@ -365,7 +365,7 @@ abstract class AppLocalizations {
   /// No description provided for @demoPendingTasks.
   ///
   /// In es, this message translates to:
-  /// **'{count, plural, =1{1 tarea pendiente} other{{count} tareas pendientes}}'**
+  /// **'{count, plural, =0{Sin tareas pendientes} =1{1 tarea pendiente} other{{count} tareas pendientes}}'**
   String demoPendingTasks(int count);
 
   /// No description provided for @demoBudgetTitle.
@@ -389,7 +389,7 @@ abstract class AppLocalizations {
   /// No description provided for @demoProducts.
   ///
   /// In es, this message translates to:
-  /// **'{count, plural, =1{1 producto} other{{count} productos}}'**
+  /// **'{count, plural, =0{Sin productos} =1{1 producto} other{{count} productos}}'**
   String demoProducts(int count);
 
   /// No description provided for @badgeDone.
@@ -601,6 +601,258 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Más'**
   String get navMore;
+
+  /// No description provided for @greetingMorning.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenos días'**
+  String get greetingMorning;
+
+  /// No description provided for @greetingAfternoon.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenas tardes'**
+  String get greetingAfternoon;
+
+  /// No description provided for @greetingEvening.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenas noches'**
+  String get greetingEvening;
+
+  /// No description provided for @greetingSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Hagamos de hoy un gran día.'**
+  String get greetingSubtitle;
+
+  /// No description provided for @myHousehold.
+  ///
+  /// In es, this message translates to:
+  /// **'Mi hogar'**
+  String get myHousehold;
+
+  /// No description provided for @demoHouseholdName.
+  ///
+  /// In es, this message translates to:
+  /// **'Hogar de ejemplo'**
+  String get demoHouseholdName;
+
+  /// No description provided for @householdSwitcherHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar de hogar'**
+  String get householdSwitcherHint;
+
+  /// No description provided for @householdSheetTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tus hogares'**
+  String get householdSheetTitle;
+
+  /// No description provided for @householdSheetMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Pronto podrás crear hogares, invitar a tu familia y cambiar entre ellos.'**
+  String get householdSheetMessage;
+
+  /// No description provided for @notifications.
+  ///
+  /// In es, this message translates to:
+  /// **'Notificaciones'**
+  String get notifications;
+
+  /// No description provided for @todayEyebrow.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu hogar hoy'**
+  String get todayEyebrow;
+
+  /// No description provided for @todayAllGood.
+  ///
+  /// In es, this message translates to:
+  /// **'Todo bajo control'**
+  String get todayAllGood;
+
+  /// No description provided for @statTasks.
+  ///
+  /// In es, this message translates to:
+  /// **'Tareas'**
+  String get statTasks;
+
+  /// No description provided for @statShopping.
+  ///
+  /// In es, this message translates to:
+  /// **'Compras'**
+  String get statShopping;
+
+  /// No description provided for @statEvents.
+  ///
+  /// In es, this message translates to:
+  /// **'Eventos'**
+  String get statEvents;
+
+  /// No description provided for @statSemantics.
+  ///
+  /// In es, this message translates to:
+  /// **'{label}: {count}'**
+  String statSemantics(String label, int count);
+
+  /// No description provided for @organizeYourHome.
+  ///
+  /// In es, this message translates to:
+  /// **'Organiza tu hogar'**
+  String get organizeYourHome;
+
+  /// No description provided for @moduleCleaning.
+  ///
+  /// In es, this message translates to:
+  /// **'Limpieza'**
+  String get moduleCleaning;
+
+  /// No description provided for @moduleFinances.
+  ///
+  /// In es, this message translates to:
+  /// **'Finanzas'**
+  String get moduleFinances;
+
+  /// No description provided for @moduleShopping.
+  ///
+  /// In es, this message translates to:
+  /// **'Compras'**
+  String get moduleShopping;
+
+  /// No description provided for @modulePantry.
+  ///
+  /// In es, this message translates to:
+  /// **'Despensa'**
+  String get modulePantry;
+
+  /// No description provided for @moduleCalendar.
+  ///
+  /// In es, this message translates to:
+  /// **'Calendario'**
+  String get moduleCalendar;
+
+  /// No description provided for @moduleRecipes.
+  ///
+  /// In es, this message translates to:
+  /// **'Recetas y menús'**
+  String get moduleRecipes;
+
+  /// No description provided for @moduleMaintenance.
+  ///
+  /// In es, this message translates to:
+  /// **'Mantenimiento'**
+  String get moduleMaintenance;
+
+  /// No description provided for @moduleDocuments.
+  ///
+  /// In es, this message translates to:
+  /// **'Documentos'**
+  String get moduleDocuments;
+
+  /// No description provided for @moduleFamily.
+  ///
+  /// In es, this message translates to:
+  /// **'Mi familia'**
+  String get moduleFamily;
+
+  /// No description provided for @moduleAssistant.
+  ///
+  /// In es, this message translates to:
+  /// **'Asistente inteligente'**
+  String get moduleAssistant;
+
+  /// No description provided for @moduleSettings.
+  ///
+  /// In es, this message translates to:
+  /// **'Configuración'**
+  String get moduleSettings;
+
+  /// No description provided for @recipesSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Menú semanal'**
+  String get recipesSubtitle;
+
+  /// No description provided for @documentsSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tus archivos'**
+  String get documentsSubtitle;
+
+  /// No description provided for @demoUpcomingEvents.
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, =0{Sin eventos próximos} =1{1 evento próximo} other{{count} eventos próximos}}'**
+  String demoUpcomingEvents(int count);
+
+  /// No description provided for @demoUpcomingMaintenance.
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, =0{Sin revisiones próximas} =1{1 revisión próxima} other{{count} revisiones próximas}}'**
+  String demoUpcomingMaintenance(int count);
+
+  /// No description provided for @demoFamilyMembers.
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, =1{1 integrante} other{{count} integrantes}}'**
+  String demoFamilyMembers(int count);
+
+  /// No description provided for @assistantPrompt.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Qué necesitas organizar hoy?'**
+  String get assistantPrompt;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In es, this message translates to:
+  /// **'Próximamente'**
+  String get comingSoon;
+
+  /// No description provided for @comingSoonMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Estamos preparando esta sección para que organizar tu hogar sea aún más fácil.'**
+  String get comingSoonMessage;
+
+  /// No description provided for @tasksPlaceholderTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Aquí verás las tareas del hogar'**
+  String get tasksPlaceholderTitle;
+
+  /// No description provided for @shoppingPlaceholderTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Aquí verás tus listas de compras'**
+  String get shoppingPlaceholderTitle;
+
+  /// No description provided for @agendaPlaceholderTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Aquí verás los eventos del hogar'**
+  String get agendaPlaceholderTitle;
+
+  /// No description provided for @moreFeatures.
+  ///
+  /// In es, this message translates to:
+  /// **'Funciones'**
+  String get moreFeatures;
+
+  /// No description provided for @moreAppearance.
+  ///
+  /// In es, this message translates to:
+  /// **'Apariencia'**
+  String get moreAppearance;
+
+  /// No description provided for @moreDevelopment.
+  ///
+  /// In es, this message translates to:
+  /// **'Desarrollo'**
+  String get moreDevelopment;
 }
 
 class _AppLocalizationsDelegate

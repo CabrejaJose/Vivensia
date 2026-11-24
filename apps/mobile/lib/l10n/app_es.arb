@@ -56,11 +56,11 @@
   "showPassword": "Mostrar contraseña",
   "hidePassword": "Ocultar contraseña",
   "demoCleaningTitle": "Limpieza",
-  "demoPendingTasks": "{count, plural, =1{1 tarea pendiente} other{{count} tareas pendientes}}",
+  "demoPendingTasks": "{count, plural, =0{Sin tareas pendientes} =1{1 tarea pendiente} other{{count} tareas pendientes}}",
   "demoBudgetTitle": "Presupuesto mensual",
   "demoPercentUsed": "{percent} % usado",
   "demoShoppingTitle": "Compras",
-  "demoProducts": "{count, plural, =1{1 producto} other{{count} productos}}",
+  "demoProducts": "{count, plural, =0{Sin productos} =1{1 producto} other{{count} productos}}",
   "badgeDone": "Hecho",
   "badgeDueSoon": "Pronto",
   "badgeOverdue": "Atrasada",
@@ -119,5 +119,78 @@
   },
   "@openShowcase": {
     "description": "Botón solo visible en builds de desarrollo."
+  },
+  "greetingMorning": "Buenos días",
+  "greetingAfternoon": "Buenas tardes",
+  "greetingEvening": "Buenas noches",
+  "greetingSubtitle": "Hagamos de hoy un gran día.",
+  "myHousehold": "Mi hogar",
+  "demoHouseholdName": "Hogar de ejemplo",
+  "householdSwitcherHint": "Cambiar de hogar",
+  "householdSheetTitle": "Tus hogares",
+  "householdSheetMessage": "Pronto podrás crear hogares, invitar a tu familia y cambiar entre ellos.",
+  "notifications": "Notificaciones",
+  "todayEyebrow": "Tu hogar hoy",
+  "todayAllGood": "Todo bajo control",
+  "statTasks": "Tareas",
+  "statShopping": "Compras",
+  "statEvents": "Eventos",
+  "statSemantics": "{label}: {count}",
+  "organizeYourHome": "Organiza tu hogar",
+  "moduleCleaning": "Limpieza",
+  "moduleFinances": "Finanzas",
+  "moduleShopping": "Compras",
+  "modulePantry": "Despensa",
+  "moduleCalendar": "Calendario",
+  "moduleRecipes": "Recetas y menús",
+  "moduleMaintenance": "Mantenimiento",
+  "moduleDocuments": "Documentos",
+  "moduleFamily": "Mi familia",
+  "moduleAssistant": "Asistente inteligente",
+  "moduleSettings": "Configuración",
+  "recipesSubtitle": "Menú semanal",
+  "documentsSubtitle": "Tus archivos",
+  "demoUpcomingEvents": "{count, plural, =0{Sin eventos próximos} =1{1 evento próximo} other{{count} eventos próximos}}",
+  "demoUpcomingMaintenance": "{count, plural, =0{Sin revisiones próximas} =1{1 revisión próxima} other{{count} revisiones próximas}}",
+  "demoFamilyMembers": "{count, plural, =1{1 integrante} other{{count} integrantes}}",
+  "assistantPrompt": "¿Qué necesitas organizar hoy?",
+  "comingSoon": "Próximamente",
+  "comingSoonMessage": "Estamos preparando esta sección para que organizar tu hogar sea aún más fácil.",
+  "tasksPlaceholderTitle": "Aquí verás las tareas del hogar",
+  "shoppingPlaceholderTitle": "Aquí verás tus listas de compras",
+  "agendaPlaceholderTitle": "Aquí verás los eventos del hogar",
+  "moreFeatures": "Funciones",
+  "moreAppearance": "Apariencia",
+  "moreDevelopment": "Desarrollo",
+  "@demoUpcomingEvents": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@demoUpcomingMaintenance": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@demoFamilyMembers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@statSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }
