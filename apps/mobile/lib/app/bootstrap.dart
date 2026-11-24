@@ -6,6 +6,8 @@ import '../core/errors/error_reporter.dart';
 import '../core/network/supabase_initializer.dart';
 import '../features/auth/application/auth_providers.dart';
 import '../features/auth/data/repositories/supabase_auth_repository.dart';
+import '../features/profile/application/profile_providers.dart';
+import '../features/profile/data/repositories/supabase_profile_repository.dart';
 import 'app.dart';
 import 'config/app_config.dart';
 
@@ -42,10 +44,14 @@ Future<void> bootstrap() async {
       overrides: [
         appConfigProvider.overrideWithValue(config),
         errorReporterProvider.overrideWithValue(reporter),
-        if (supabase != null)
+        if (supabase != null) ...[
           authRepositoryProvider.overrideWithValue(
             SupabaseAuthRepository(supabase.auth),
           ),
+          profileRepositoryProvider.overrideWithValue(
+            SupabaseProfileRepository(supabase),
+          ),
+        ],
       ],
       child: const VivensiaApp(),
     ),

@@ -603,4 +603,54 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get demoModeMessage =>
       'No hay servidor configurado: la app muestra datos de ejemplo y no requiere cuenta.';
+
+  @override
+  String get onboardingTitle => '¿Cómo te llamamos?';
+
+  @override
+  String get onboardingSubtitle =>
+      'Tu nombre aparecerá en las tareas y listas que compartas con tu hogar.';
+
+  @override
+  String get languageLabel => 'Idioma';
+
+  @override
+  String get languageSpanish => 'Español';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get continueAction => 'Continuar';
+
+  @override
+  String get savingProfile => 'Guardando…';
+
+  @override
+  String get profileTitle => 'Mi perfil';
+
+  @override
+  String get saveChanges => 'Guardar cambios';
+
+  @override
+  String get profileSaved => 'Perfil actualizado.';
+
+  @override
+  String get profileSaveError =>
+      'No pudimos guardar los cambios. Revisa tu conexión e inténtalo de nuevo.';
+
+  @override
+  String greetingMorningNamed(String name) {
+    return 'Buenos días, $name';
+  }
+
+  @override
+  String greetingAfternoonNamed(String name) {
+    return 'Buenas tardes, $name';
+  }
+
+  @override
+  String greetingEveningNamed(String name) {
+    return 'Buenas noches, $name';
+  }
 }

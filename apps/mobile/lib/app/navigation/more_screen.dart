@@ -9,6 +9,7 @@ import '../../features/auth/application/auth_providers.dart';
 import '../../features/auth/domain/auth_failure.dart';
 import '../../features/auth/domain/auth_status.dart';
 import '../../features/auth/presentation/auth_messages.dart';
+import '../../features/profile/application/profile_providers.dart';
 import '../../l10n/app_localizations.dart';
 import '../router/app_routes.dart';
 import 'app_module.dart';
@@ -93,11 +94,15 @@ class MoreScreen extends ConsumerWidget {
                     ),
                     child: Column(
                       children: [
-                        if (user.email != null)
-                          VivListTile(
-                            icon: LucideIcons.circleUser,
-                            title: user.email!,
-                          ),
+                        VivListTile(
+                          icon: LucideIcons.circleUser,
+                          title:
+                              ref.watch(myProfileProvider).value?.displayName ??
+                              l10n.profileTitle,
+                          subtitle: user.email,
+                          showChevron: true,
+                          onTap: () => context.push(AppRoutes.profile),
+                        ),
                         VivListTile(
                           icon: LucideIcons.logOut,
                           title: l10n.signOut,

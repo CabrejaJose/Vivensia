@@ -262,5 +262,43 @@
         "type": "int"
       }
     }
+  },
+  "onboardingTitle": "¿Cómo te llamamos?",
+  "onboardingSubtitle": "Tu nombre aparecerá en las tareas y listas que compartas con tu hogar.",
+  "languageLabel": "Idioma",
+  "languageSpanish": "Español",
+  "languageEnglish": "English",
+  "continueAction": "Continuar",
+  "savingProfile": "Guardando…",
+  "profileTitle": "Mi perfil",
+  "saveChanges": "Guardar cambios",
+  "profileSaved": "Perfil actualizado.",
+  "profileSaveError": "No pudimos guardar los cambios. Revisa tu conexión e inténtalo de nuevo.",
+  "greetingMorningNamed": "Buenos días, {name}",
+  "greetingAfternoonNamed": "Buenas tardes, {name}",
+  "greetingEveningNamed": "Buenas noches, {name}",
+  "@greetingMorningNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@greetingAfternoonNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@greetingEveningNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@languageSpanish": {
+    "description": "Nombre del idioma en su propio idioma (no se traduce)."
   }
 }

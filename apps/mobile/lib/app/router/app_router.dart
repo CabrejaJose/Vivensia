@@ -11,6 +11,10 @@ import '../../features/auth/presentation/screens/sign_up_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
 import '../../features/auth/presentation/screens/welcome_screen.dart';
 import '../../features/dashboard/presentation/screens/dashboard_screen.dart';
+import '../../features/profile/application/profile_providers.dart';
+import '../../features/profile/domain/entities/user_profile.dart';
+import '../../features/profile/presentation/screens/onboarding_screen.dart';
+import '../../features/profile/presentation/screens/profile_screen.dart';
 import '../dev/design_system_showcase_screen.dart';
 import '../navigation/app_module.dart';
 import '../navigation/app_shell.dart';
@@ -27,22 +31,40 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   GoRoute tab(String path, Widget screen) =>
       GoRoute(path: path, builder: (context, state) => screen);
 
-  // Estado de auth síncrono para la guardia; notifica al router al cambiar.
-  final authState = ValueNotifier<AuthStatus?>(null);
+  // Estado síncrono (sesión + perfil) para la guardia; notifica al router.
+  final guard = ValueNotifier<(AuthStatus?, ProfileGate)>((
+    null,
+    ProfileGate.loading,
+  ));
   ref.listen<AsyncValue<AuthStatus>>(authStatusProvider, (_, next) {
-    authState.value = switch (next) {
+    final status = switch (next) {
       AsyncData(:final value) => value,
       AsyncError() => const AuthSignedOut(),
-      _ => authState.value,
+      _ => guard.value.$1,
     };
+    guard.value = (status, guard.value.$2);
   }, fireImmediately: true);
-  ref.onDispose(authState.dispose);
+  ref.listen<AsyncValue<UserProfile?>>(myProfileProvider, (_, next) {
+    final gate = next.isLoading && !next.hasValue
+        ? ProfileGate.loading
+        // Ante un error no se bloquea el acceso (la app sigue usable).
+        : next.hasError
+        ? ProfileGate.ready
+        : next.value?.isComplete == false
+        ? ProfileGate.incomplete
+        : ProfileGate.ready;
+    guard.value = (guard.value.$1, gate);
+  }, fireImmediately: true);
+  ref.onDispose(guard.dispose);
 
   final router = GoRouter(
     initialLocation: AppRoutes.home,
-    refreshListenable: authState,
-    redirect: (context, state) =>
-        authRedirect(authState.value, state.matchedLocation),
+    refreshListenable: guard,
+    redirect: (context, state) => authRedirect(
+      guard.value.$1,
+      state.matchedLocation,
+      profile: guard.value.$2,
+    ),
     routes: [
       GoRoute(
         path: AppRoutes.splash,
@@ -63,6 +85,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.forgotPassword,
         builder: (context, state) => const ForgotPasswordScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.onboarding,
+        builder: (context, state) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.profile,
+        builder: (context, state) => const ProfileScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>

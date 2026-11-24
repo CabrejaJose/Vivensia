@@ -603,4 +603,54 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get demoModeMessage =>
       'No server configured: the app shows sample data and doesn\'t require an account.';
+
+  @override
+  String get onboardingTitle => 'What should we call you?';
+
+  @override
+  String get onboardingSubtitle =>
+      'Your name will appear on the tasks and lists you share with your home.';
+
+  @override
+  String get languageLabel => 'Language';
+
+  @override
+  String get languageSpanish => 'Español';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get continueAction => 'Continue';
+
+  @override
+  String get savingProfile => 'Saving…';
+
+  @override
+  String get profileTitle => 'My profile';
+
+  @override
+  String get saveChanges => 'Save changes';
+
+  @override
+  String get profileSaved => 'Profile updated.';
+
+  @override
+  String get profileSaveError =>
+      'We couldn\'t save your changes. Check your connection and try again.';
+
+  @override
+  String greetingMorningNamed(String name) {
+    return 'Good morning, $name';
+  }
+
+  @override
+  String greetingAfternoonNamed(String name) {
+    return 'Good afternoon, $name';
+  }
+
+  @override
+  String greetingEveningNamed(String name) {
+    return 'Good evening, $name';
+  }
 }

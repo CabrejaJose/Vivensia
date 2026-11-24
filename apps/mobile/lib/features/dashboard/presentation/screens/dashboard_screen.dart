@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import '../../../../core/utils/clock.dart';
 import '../../../../design_system/design_system.dart';
 import '../../../../l10n/app_localizations.dart';
+import '../../../profile/application/profile_providers.dart';
 import '../../application/home_summary_provider.dart';
 import '../../domain/entities/home_summary.dart';
 import '../../domain/greeting_period.dart';
@@ -78,6 +79,7 @@ class _Content extends ConsumerWidget {
         HomeHeader(
           householdName: summary.householdName ?? l10n.demoHouseholdName,
           period: greetingPeriodOf(now),
+          userName: ref.watch(myProfileProvider).value?.displayName,
         ),
         if (summary.isDemo) ...[
           const SizedBox(height: VivSpacing.md),

@@ -1147,6 +1147,90 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'No hay servidor configurado: la app muestra datos de ejemplo y no requiere cuenta.'**
   String get demoModeMessage;
+
+  /// No description provided for @onboardingTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Cómo te llamamos?'**
+  String get onboardingTitle;
+
+  /// No description provided for @onboardingSubtitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu nombre aparecerá en las tareas y listas que compartas con tu hogar.'**
+  String get onboardingSubtitle;
+
+  /// No description provided for @languageLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Idioma'**
+  String get languageLabel;
+
+  /// Nombre del idioma en su propio idioma (no se traduce).
+  ///
+  /// In es, this message translates to:
+  /// **'Español'**
+  String get languageSpanish;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In es, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @continueAction.
+  ///
+  /// In es, this message translates to:
+  /// **'Continuar'**
+  String get continueAction;
+
+  /// No description provided for @savingProfile.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardando…'**
+  String get savingProfile;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Mi perfil'**
+  String get profileTitle;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar cambios'**
+  String get saveChanges;
+
+  /// No description provided for @profileSaved.
+  ///
+  /// In es, this message translates to:
+  /// **'Perfil actualizado.'**
+  String get profileSaved;
+
+  /// No description provided for @profileSaveError.
+  ///
+  /// In es, this message translates to:
+  /// **'No pudimos guardar los cambios. Revisa tu conexión e inténtalo de nuevo.'**
+  String get profileSaveError;
+
+  /// No description provided for @greetingMorningNamed.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenos días, {name}'**
+  String greetingMorningNamed(String name);
+
+  /// No description provided for @greetingAfternoonNamed.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenas tardes, {name}'**
+  String greetingAfternoonNamed(String name);
+
+  /// No description provided for @greetingEveningNamed.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenas noches, {name}'**
+  String greetingEveningNamed(String name);
 }
 
 class _AppLocalizationsDelegate

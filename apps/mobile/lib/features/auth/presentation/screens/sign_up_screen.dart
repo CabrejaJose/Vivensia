@@ -11,7 +11,6 @@ import '../../application/auth_providers.dart';
 import '../../domain/auth_failure.dart';
 import '../../domain/auth_validators.dart';
 import '../auth_messages.dart';
-import '../widgets/auth_layout.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});
@@ -68,7 +67,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     final l10n = AppLocalizations.of(context);
 
     if (_confirmationSent) {
-      return AuthLayout(
+      return VivFormLayout(
         title: l10n.confirmEmailTitle,
         children: [
           VivNotice(
@@ -85,7 +84,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       );
     }
 
-    return AuthLayout(
+    return VivFormLayout(
       title: l10n.signUpTitle,
       subtitle: l10n.signUpSubtitle,
       children: [

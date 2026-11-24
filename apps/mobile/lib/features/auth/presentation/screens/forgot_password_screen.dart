@@ -10,7 +10,6 @@ import '../../application/auth_providers.dart';
 import '../../domain/auth_failure.dart';
 import '../../domain/auth_validators.dart';
 import '../auth_messages.dart';
-import '../widgets/auth_layout.dart';
 
 class ForgotPasswordScreen extends ConsumerStatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -52,7 +51,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return AuthLayout(
+    return VivFormLayout(
       title: l10n.forgotPasswordTitle,
       subtitle: _sent ? null : l10n.forgotPasswordSubtitle,
       children: [

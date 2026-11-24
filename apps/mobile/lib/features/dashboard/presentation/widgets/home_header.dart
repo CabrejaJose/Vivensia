@@ -13,23 +13,35 @@ class HomeHeader extends StatelessWidget {
     required this.householdName,
     required this.period,
     super.key,
+    this.userName,
   });
 
   final String householdName;
   final GreetingPeriod period;
+
+  /// Nombre del usuario con sesión (null en modo demo o sin perfil).
+  final String? userName;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final text = Theme.of(context).textTheme;
     final viv = context.vivColors;
+    final name = userName?.trim();
+    final hasName = name != null && name.isNotEmpty;
     final (greeting, icon) = switch (period) {
-      GreetingPeriod.morning => (l10n.greetingMorning, LucideIcons.sun),
+      GreetingPeriod.morning => (
+        hasName ? l10n.greetingMorningNamed(name) : l10n.greetingMorning,
+        LucideIcons.sun,
+      ),
       GreetingPeriod.afternoon => (
-        l10n.greetingAfternoon,
+        hasName ? l10n.greetingAfternoonNamed(name) : l10n.greetingAfternoon,
         LucideIcons.sunMedium,
       ),
-      GreetingPeriod.evening => (l10n.greetingEvening, LucideIcons.moon),
+      GreetingPeriod.evening => (
+        hasName ? l10n.greetingEveningNamed(name) : l10n.greetingEvening,
+        LucideIcons.moon,
+      ),
     };
 
     return Column(

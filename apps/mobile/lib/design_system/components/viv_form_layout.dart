@@ -1,12 +1,13 @@
 import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../../../../design_system/design_system.dart';
+import '../theme/vivensia_colors.dart';
+import '../tokens/tokens.dart';
 
-/// Estructura común de las pantallas de autenticación: contenido centrado,
-/// desplazable y con ancho máximo legible.
-class AuthLayout extends StatelessWidget {
-  const AuthLayout({
+/// Pantalla de formulario: título, subtítulo y contenido centrado,
+/// desplazable y con ancho máximo legible (auth, onboarding).
+class VivFormLayout extends StatelessWidget {
+  const VivFormLayout({
     required this.title,
     required this.children,
     super.key,

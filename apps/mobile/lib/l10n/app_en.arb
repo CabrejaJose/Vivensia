@@ -174,5 +174,19 @@
   "signOutConfirmTitle": "Sign out?",
   "signOutConfirmMessage": "You can sign back in with your email and password.",
   "demoModeTitle": "Demo mode",
-  "demoModeMessage": "No server configured: the app shows sample data and doesn't require an account."
+  "demoModeMessage": "No server configured: the app shows sample data and doesn't require an account.",
+  "onboardingTitle": "What should we call you?",
+  "onboardingSubtitle": "Your name will appear on the tasks and lists you share with your home.",
+  "languageLabel": "Language",
+  "languageSpanish": "Español",
+  "languageEnglish": "English",
+  "continueAction": "Continue",
+  "savingProfile": "Saving…",
+  "profileTitle": "My profile",
+  "saveChanges": "Save changes",
+  "profileSaved": "Profile updated.",
+  "profileSaveError": "We couldn't save your changes. Check your connection and try again.",
+  "greetingMorningNamed": "Good morning, {name}",
+  "greetingAfternoonNamed": "Good afternoon, {name}",
+  "greetingEveningNamed": "Good evening, {name}"
 }

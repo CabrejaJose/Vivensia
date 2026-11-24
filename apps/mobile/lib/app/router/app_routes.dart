@@ -18,6 +18,9 @@ abstract final class AppRoutes {
   static const signUp = '/sign-up';
   static const forgotPassword = '/forgot-password';
 
+  static const onboarding = '/onboarding';
+  static const profile = '/profile';
+
   /// Rutas accesibles sin sesión.
   static const authRoutes = {welcome, signIn, signUp, forgotPassword};
 
