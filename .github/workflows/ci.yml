@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**", "feature/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hygiene:
+    name: Higiene del repositorio
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Detectar secretos
+        run: bash scripts/check-secrets.sh
+
+  mobile:
+    name: Flutter (analyze + test)
+    runs-on: ubuntu-latest
+    needs: hygiene
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar si existe la app
+        id: app
+        working-directory: .
+        run: |
+          if [ -f apps/mobile/pubspec.yaml ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "apps/mobile todavía no existe (se crea en el Hito 3). Se omite."
+          fi
+      # La versión exacta de Flutter se fijará en el Hito 3.
+      - uses: subosito/flutter-action@v2
+        if: steps.app.outputs.exists == 'true'
+        with:
+          channel: stable
+          cache: true
+      - if: steps.app.outputs.exists == 'true'
+        run: flutter pub get
+      - if: steps.app.outputs.exists == 'true'
+        run: dart format --output=none --set-exit-if-changed lib test
+      - if: steps.app.outputs.exists == 'true'
+        run: flutter analyze
+      - if: steps.app.outputs.exists == 'true'
+        run: flutter test
