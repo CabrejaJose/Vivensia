@@ -21,8 +21,43 @@ Nunca se modifica el esquema a mano en un entorno remoto.
   p. ej. `is_household_member(household_id)` y `has_household_role(household_id, role)`.
 - Pruebas de acceso cruzado entre hogares en `supabase/tests/`.
 
-## Primera migración prevista (Hito 6)
-`profiles`, `households`, `household_members` (+ `invitations` en Fase 03).
+## Esquema actual (Hito 6)
+
+```
+auth.users ──1:1──▶ profiles ◀──┐
+                                 │ user_id (cascade)
+households ◀── household_id ── household_members (role: owner|admin|member)
+   (cascade)
+```
+
+| Migración | Contenido |
+|---|---|
+| `20261124140000_private_schema` | Esquema `private` (no expuesto por la API), `set_updated_at()` |
+| `20261124140100_profiles` | `profiles` + trigger que lo crea al registrarse |
+| `20261124140200_households` | `households`, `household_members`, rol `household_role`, funciones de pertenencia, protección del último owner, sucesión, `create_household()` |
+| `20261124140300_rls_policies` | Privilegios mínimos y políticas RLS |
+
+### Matriz de permisos (rol `authenticated`)
+| Tabla | SELECT | INSERT | UPDATE | DELETE |
+|---|---|---|---|---|
+| profiles | propio + integrantes de mis hogares | ✗ (trigger) | solo el propio: `display_name`, `avatar_path`, `locale` | ✗ (cascada) |
+| households | mis hogares | ✗ → `create_household()` | owner/admin: `name`, `currency_code`, `time_zone` | owner |
+| household_members | integrantes de mis hogares | ✗ (Fase 03: invitaciones) | owner: `role` | yo mismo (salir) · owner: cualquiera · admin: members |
+
+`anon` no tiene ningún privilegio sobre estas tablas ni sobre `create_household()`.
+
+### Reglas de integridad
+- Un hogar siempre conserva al menos un owner: el último no puede salir ni degradarse (`last_owner`).
+- Eliminar la cuenta del último owner transfiere la propiedad al integrante más antiguo;
+  si no quedan integrantes, el hogar se elimina.
+- `create_household()` es atómico, exige sesión y limita a 20 hogares propios por usuario.
+- Zona horaria validada contra `pg_timezone_names`; moneda ISO 4217 (`^[A-Z]{3}$`).
+- El email no se copia a `profiles`; sin nombre en el registro, `display_name` queda null.
+
+### Pruebas
+`bash scripts/test-db.sh` — 66 aserciones (ver `supabase/tests/README.md`). Se verificó
+con mutaciones que una política demasiado amplia o un privilegio olvidado a `anon`
+hacen fallar las pruebas.
 
 ## Tablas previstas por área
 | Área | Tablas | Fase |

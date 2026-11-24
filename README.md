@@ -18,7 +18,7 @@ conectadas entre sí para que la información no se introduzca dos veces.
 
 ## Estado
 
-🚧 **Sprint 01 — Fundación técnica.** Hito 5 (navegación y pantallas iniciales) en revisión. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
+🚧 **Sprint 01 — Fundación técnica.** Hito 6 (preparación del backend) en revisión. Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
 y la hoja de ruta en [`docs/product/roadmap.md`](docs/product/roadmap.md).
 
 ## Estructura del repositorio
@@ -64,7 +64,13 @@ flutter pub get
 flutter run --dart-define=APP_ENV=development
 ```
 
-Comprobaciones locales (las mismas que CI):
+Pruebas de base de datos (migraciones + RLS, sin Docker):
+
+```bash
+bash scripts/test-db.sh
+```
+
+Comprobaciones locales de la app (las mismas que CI):
 
 ```bash
 dart format --output=none --set-exit-if-changed lib test && flutter analyze && flutter test

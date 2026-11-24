@@ -8,8 +8,8 @@
 | 2 | Repositorio y documentación | COMPLETADO (aprobado 2026-11-24) |
 | 3 | App Flutter inicial (`com.vivensia.app`, Riverpod, GoRouter, l10n) | COMPLETADO (aprobado 2026-11-24) |
 | 4 | Sistema de diseño (tokens, temas, componentes) | COMPLETADO (aprobado 2026-11-24) |
-| 5 | Navegación y pantallas iniciales | EN REVISIÓN |
-| 6 | Preparación del backend (migraciones + RLS iniciales) | PENDIENTE |
+| 5 | Navegación y pantallas iniciales | COMPLETADO (aprobado 2026-11-24) |
+| 6 | Preparación del backend (migraciones + RLS iniciales) | EN REVISIÓN |
 | 7 | Validación (analyze, tests, Android, temas) | PENDIENTE |
 
 ## Hito 1 — resultado de la auditoría (entorno de agente en la nube)
@@ -59,6 +59,19 @@
   tablet 820×1180) × 2 temas.
 - Capturas reales actualizadas en `apps/mobile/screenshots/goldens/`. APK debug recompilado.
 - **No verificado**: ejecución en emulador/dispositivo (sin KVM) ni iOS.
+
+## Hito 6 — resultado
+- `supabase/config.toml` generado con `supabase init` (CLI 3.3.0 instalado localmente vía npm,
+  sin instalación global) y endurecido (contraseña ≥ 8 con letras y dígitos, reautenticación).
+- 4 migraciones: esquema privado, `profiles`, `households` + `household_members`, RLS.
+- 66 aserciones SQL en PostgreSQL 16 temporal (`scripts/test-db.sh`), incluidas pruebas de
+  acceso cruzado entre hogares, escalamiento de privilegios y eliminación de cuenta.
+  Verificado con 2 mutaciones que las pruebas detectan regresiones de seguridad.
+- Job `database` en CI.
+- App: `AppConfig` acepta `SUPABASE_URL`/`SUPABASE_ANON_KEY` por `--dart-define-from-file`
+  (`apps/mobile/config/*.example.json`); sin SDK de Supabase todavía (Fase 02). 136/136 pruebas.
+- Estrategia de autenticación documentada (`docs/security/auth-strategy.md`).
+- **No realizado**: `supabase start` (sin Docker) ni ningún cambio en proyectos remotos.
 
 ## Decisiones
 - Identificador: `com.vivensia.app` (ADR 0002).

@@ -7,6 +7,12 @@ y versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- Sprint 01 · Hito 6: `supabase/config.toml` local, migraciones de `profiles`, `households`
+  y `household_members` con RLS, `create_household()` atómico, protección del último owner
+  y sucesión al eliminar cuentas.
+- `scripts/test-db.sh` y 66 aserciones de base de datos (aislamiento entre hogares); job de CI.
+- `AppConfig` con `SUPABASE_URL`/`SUPABASE_ANON_KEY` y ejemplos de configuración por entorno.
+- ADR 0005 (acceso por hogar) y 0006 (pruebas de BD sin Docker); estrategia de autenticación.
 - Sprint 01 · Hito 5: navegación principal con barra inferior (Inicio, Tareas, Compras,
   Agenda, Más), dashboard conceptual con datos de ejemplo identificados, pantallas
   "Próximamente" para funciones futuras y pestaña Más con selector de tema.
