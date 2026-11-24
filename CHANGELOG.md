@@ -7,6 +7,8 @@ y versionado [SemVer](https://semver.org/lang/es/).
 ## [Unreleased]
 
 ### Added
+- Fase 02 · Hito 2.3: perfil del usuario (`profiles`), onboarding con nombre e idioma,
+  pantalla Mi perfil, idioma del perfil aplicado a la app y saludo personalizado.
 - Fase 02 · Hito 2.1: autenticación con Supabase (PKCE) y sesión en almacenamiento seguro;
   bienvenida, registro, inicio de sesión, recuperación de contraseña y cierre de sesión;
   guardia de rutas; modo demostración sin backend; componentes `VivNotice` y `VivBrandMark`.

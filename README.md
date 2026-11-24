@@ -18,7 +18,7 @@ conectadas entre sí para que la información no se introduzca dos veces.
 
 ## Estado
 
-🚧 **Fase 02 — Autenticación.** Hito 2.1 en revisión — ver [plan de la fase](docs/sprints/phase-02-auth.md).
+🚧 **Fase 02 — Autenticación.** Hito 2.3 (onboarding y perfil) en revisión — ver [plan de la fase](docs/sprints/phase-02-auth.md).
 Sprint 01 (fundación) completado: [reporte](docs/sprints/sprint-01-report.md). Ver [`docs/sprints/sprint-01.md`](docs/sprints/sprint-01.md)
 y la hoja de ruta en [`docs/product/roadmap.md`](docs/product/roadmap.md).
 
