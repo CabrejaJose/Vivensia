@@ -2,23 +2,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:vivensia/app/app.dart';
+import 'package:vivensia/app/navigation/more_screen.dart';
 import 'package:vivensia/app/router/app_router.dart';
 import 'package:vivensia/app/router/app_routes.dart';
 import 'package:vivensia/design_system/design_system.dart';
 
 import '../helpers/pump_app.dart';
 
-/// Los loaders y skeletons animan indefinidamente: se avanza con tiempo
-/// fijo en vez de `pumpAndSettle`.
-Future<void> settle(WidgetTester tester) async {
-  for (var i = 0; i < 10; i++) {
-    await tester.pump(const Duration(milliseconds: 100));
-  }
-}
-
 Future<void> openShowcase(WidgetTester tester) async {
-  await tester.tap(find.text('Ver sistema de diseño'));
+  await tester.tap(
+    find.descendant(of: find.byType(NavigationBar), matching: find.text('Más')),
+  );
   await settle(tester);
+  await tapInScreen<MoreScreen>(tester, 'Ver sistema de diseño');
 }
 
 final demoBadge = find.widgetWithText(VivBadge, 'Datos de ejemplo');
@@ -34,7 +30,7 @@ Future<void> scrollToEnd(WidgetTester tester) async {
 
 void main() {
   group('Pantalla de sistema de diseño', () {
-    testWidgets('se abre desde inicio en builds de desarrollo', (tester) async {
+    testWidgets('se abre desde Más en builds de desarrollo', (tester) async {
       await pumpVivensiaApp(tester);
       await openShowcase(tester);
       expect(find.text('Sistema de diseño'), findsWidgets);
